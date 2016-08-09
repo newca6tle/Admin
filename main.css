@@ -1,0 +1,56 @@
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-size: 13px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.app-box,
+.app-content-box,
+.data-list-container-box,
+.data-list-box,
+.data-form-box {
+  display: flex;
+  position: relative;
+}
+
+.app-content-box,
+.data-list-container-box,
+.data-list-box,
+.data-form-box {
+  flex-grow: 1;
+}
+
+.app-box-wrapper,
+.app-content-box-wrapper,
+.data-list-container-box-wrapper,
+.data-list-box-wrapper,
+.data-form-box-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+
+.app-box-wrapper {
+  flex-direction: column;
+}
+
+.app-content-box-wrapper {
+  flex-direction: row;
+}
+
+.data-list-container-box-wrapper {
+  flex-direction: column;
+}
+
+.data-list-box-wrapper {
+  flex-direction: column;
+  overflow: scroll;
+}
