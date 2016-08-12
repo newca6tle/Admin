@@ -10,6 +10,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import AppBar from 'material-ui/AppBar';
+import DatePicker from 'material-ui/DatePicker';
+import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
@@ -32,6 +34,9 @@ import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
 import {Step, Stepper, StepLabel} from 'material-ui/Stepper';
 import {indigo500} from 'material-ui/styles/colors';
+import Toggle from 'material-ui/Toggle';
+import Slider from 'material-ui/Slider';
+
 /* This is required to simulate tapping. */
 injectTapEventPlugin();
 
@@ -42,88 +47,184 @@ var styles = StyleSheet.create({
     flexGrow: 1
   },
 
-  appContentBoxWrapper: {
+  appContentWrapper: {
     flexDirection: 'row',
-  },
-
-  dataListContainerBox: {
-    position: 'relative',
-    flexGrow: 1
-  },
-
-  dataListContainerBoxWrapper: {
     position: 'absolute',
-    left: 0,
-    right: 0,
-    flexDirection: 'column'
-  },
-
-  dataFormContainerBox: {
-    position: 'relative',
-    flexGrow: 1
-  },
-
-  dataFormContainerBoxWrapper: {
-    position: 'absolute',
+    top: 0,
+    bottom: 0,
     left: 0,
     right: 0
   },
 
   dataListBox: {
     position: 'relative',
-    flexGrow: 1,
+    width: 300
+  },
+
+  dataListWrapper: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: 'column'
+  },
+
+  dataListToolBox:{
+    position: 'relative',
+  },
+
+  dataListToolWrapper:{
+    // position: 'absolute',
+    // position:absolute, toolbar goes missing (?????)
+    top: 0,
+    bottom: 0,
     left: 0,
     right: 0
   },
 
-  dataListBoxWrapper: {
-    position: 'absolute',
-    left: 15,
-    right: 0
-    /* overflow does not seem to work */
+  dataFormBox: {
+    position: 'relative',
+    flexGrow: 1,
+    borderLeftColor: grey400,
+    borderLeftWidth: 1
   },
 
-  AppFooterBox: {
+  dataFormWrapper: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: 'column'
+  },
+
+  dataFormToolBox: {
+    position: 'relative',
+  },
+
+  dataFormToolWrapper: {
+    // position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  dataListContentBox: {
     position: 'relative',
     flexGrow: 1
   },
 
-  AppFooterBoxWrapper: {
+  dataListContentWrapper: {
     position: 'absolute',
+    top: 0,
+    bottom: 0,
     left: 0,
     right: 0
   },
 
-  listView: {
-    height: 500
+  dataFormGroupBox: {
+    position: 'relative',
+    flexGrow: 1,
+    // marginLeft: 5
   },
 
-  formListBox: {
-    height: 500,
+  dataFormGroupWrapper: {
     position: 'absolute',
-    flexGrow: 1
-  },
-
-  formListBoxWrapper: {
-    position: 'absolute',
-    left: 30,
+    top: 0,
+    bottom: 0,
+    left: 0,
     right: 0
   },
 
-  stylePaper: {
-    height: 100,
-    width: 100,
-    margin: 20,
-    textAlign: 'center',
-    display: 'inline-block',
+  dataFormGroupRowBox: {
+    position: 'relative',
+    // flexGrow: 1
   },
 
-  styleItemWrapper: {
-    left: 22
+  dataFormGroupRowWrapper: {
+    // position:'absolute',
+    flexDirection:'row',
+    // backgroundColor: blue500,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
   },
 
-  styleChipWrapper: {
-    left: 22
+  dataFormGroupColLabelBox: {
+    position: 'relative',
+    flexGrow: 1
+  },
+
+  dataFormGroupColLabelWrapper: {
+    position: 'absolute',
+    // backgroundColor:green500,
+    flexDirection:'row',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  dataFormGroupFieldBox: {
+    position: 'relative',
+    flexGrow: 1,
+    marginRight: 10
+  },
+
+  dataFormGroupFieldWrapper: {
+    //position: 'absolute',
+    // backgroundColor: grey700,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  dataFormGroupColBox: {
+    position:'relative',
+    flexGrow: 1
+  },
+
+  dataFormGroupColWrapper: {
+    //  position: 'absolute',
+    // backgroundColor: green500,
+    flexDirection: 'row',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  dataFormGroupColumnBox: {
+    position:'relative',
+    flexGrow: 1
+  },
+
+  dataFormGroupColumnWrapper: {
+    //position: 'absolute',
+    // backgroundColor: green500,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  dataFormGroupLabelBox: {
+    position: 'relative',
+    width: 'auto',
+    marginRight: 10
+  },
+
+  dataFormGroupLabelWrapper: {
+    // position: 'absolute',
+    // backgroundColor: grey100,
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
   },
 });
 
@@ -134,9 +235,6 @@ const CLOSE_DRAWER    = 'CLOSE_DRAWER';
 const initialState = {
   drawer: false
 };
-
-const toolbarStyle = {
-  }
 
 /* To return the action call before sending it into the drawer reducer */
 function toggleDrawer(text) {
@@ -169,15 +267,13 @@ const reducers = combineReducers({
 let store = createStore(reducers)
 
 /* AppBarElement shown in the interface */
-let AppBarElement = () => {
-  return (
-    <AppBar
-      title="Content"
-      onLeftIconButtonTouchTap={()=>{store.dispatch(toggleDrawer())}}
-      iconElementRight={<FlatButton label="Preview" />}
-    />
-  )
-}
+const AppBarElement = () => (
+  <AppBar
+    title="Content"
+    onLeftIconButtonTouchTap={()=>{store.dispatch(toggleDrawer())}}
+    iconElementRight={<FlatButton label="Preview" />}
+  />
+);
 
 const mapStateToPropsAppContent = (state) => {
   return {
@@ -196,22 +292,26 @@ let AppContentElement = () => {
   var _scrollView: ScrollView;
   return (
     <View style={styles.appContentBox}>
-      <View style={styles.appContentBoxWrapper}>
-        <View style={styles.dataListContainerBox}>
-          <View style={styles.dataListContainerBoxWrapper}>
-            <Toolbar>
-              <ToolbarGroup>
-                <IconButton iconClassName="material-icons" tooltip="Search Content">search</IconButton>
-              </ToolbarGroup>
-              <ToolbarGroup>
-                <IconButton iconClassName="material-icons" tooltip="Sort Content">sort</IconButton>
-                <IconButton iconClassName="material-icons" tooltip="Add Content">add</IconButton>
-              </ToolbarGroup>
-            </Toolbar>
-            <View style={styles.dataListBox}>
-              <View style={styles.dataListBoxWrapper}>
+      <View style={styles.appContentWrapper}>
+        <View style={styles.dataListBox}>
+          <View style={styles.dataListWrapper}>
+            <View style={styles.dataListToolBox}>
+              <View style={styles.dataListToolWrapper}>
+                <Toolbar>
+                  <ToolbarGroup>
+                    <IconButton iconClassName="material-icons">search</IconButton>
+                  </ToolbarGroup>
+                  <ToolbarGroup>
+                    <IconButton iconClassName="material-icons">sort</IconButton>
+                    <IconButton iconClassName="material-icons">add</IconButton>
+                  </ToolbarGroup>
+                </Toolbar>
+              </View>
+            </View>
+              <View style={styles.dataListContentBox}>
+                <View style={styles.dataListContentWrapper}>
                 <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
-                  scrollEventThrottle={200} style={[styles.listView]}>
+                  scrollEventThrottle={200}>
                   <List>
                     <ListItem
                       primaryText="Show your status"
@@ -275,37 +375,124 @@ let AppContentElement = () => {
                   </List>
                 </ScrollView>
               </View>
+              </View>
+          </View>
+        </View>
+        <View style={styles.dataFormBox}>
+          <View style={styles.dataFormWrapper}>
+            <View style={styles.dataFormToolBox}>
+              <View style={styles.dataFormToolWrapper}>
+                <Toolbar>
+                  <ToolbarGroup/>
+                  <ToolbarGroup>
+                    <IconButton iconClassName="material-icons">visibility</IconButton>
+                    <IconButton iconClassName="material-icons">save</IconButton>
+                    <IconButton iconClassName="material-icons">delete</IconButton>
+                  </ToolbarGroup>
+                </Toolbar>
+              </View>
+            </View>
+            <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
+              scrollEventThrottle={200}>
+            <View style={styles.dataFormGroupBox}>
+              <View style={styles.dataFormGroupWrapper}>
+                <Card>
+                  <CardHeader
+                    title="Content Item Details" subtitle="Last updated: 12th August 2016"
+                    />
+                    <View style={styles.dataFormGroupRowBox}>
+                      <View style={styles.dataFormGroupRowWrapper}>
+                        <CardText>
+                          <CardMedia>
+                            <img src="images/furniture.jpg"/>
+                          </CardMedia>
+                        </CardText>
+                      </View>
+                    </View>
+                    <View style={styles.dataFormGroupRowBox}>
+                      <View style={styles.dataFormGroupRowWrapper}>
+                        <View style={styles.dataFormGroupColBox}>
+                          <View style={styles.dataFormGroupColWrapper}>
+                            <View style={styles.dataFormGroupLabelBox}>
+                              <View style={styles.dataFormGroupLabelWrapper}>
+                                <CardText>Name</CardText>
+                              </View>
+                            </View>
+                            <View style={styles.dataFormGroupFieldBox}>
+                              <View style={styles.dataFormGroupFieldWrapper}>
+                                <TextField fullWidth={true}/>
+                              </View>
+                            </View>
+                          </View>
+                        </View>
+                        <View style={styles.dataFormGroupColBox}>
+                          <View style={styles.dataFormGroupColWrapper}>
+                            <View style={styles.dataFormGroupLabelBox}>
+                              <View style={styles.dataFormGroupLabelWrapper}>
+                                <CardText>Date</CardText>
+                              </View>
+                            </View>
+                            <View style={styles.dataFormGroupFieldBox}>
+                              <View style={styles.dataFormGroupFieldWrapper}>
+                                <DatePicker fullWidth={true} hintText="Click to select date"/>
+                              </View>
+                            </View>
+                          </View>
+                        </View>
+                      </View>
+                    </View>
+                    <View style={styles.dataFormGroupRowBox}>
+                      <View style={styles.dataFormGroupRowWrapper}>
+                        <View style={styles.dataFormGroupLabelBox}>
+                          <View style={styles.dataFormGroupLabelWrapper}>
+                            <CardText>Description</CardText>
+                          </View>
+                        </View>
+                        <View style={styles.dataFormGroupFieldBox}>
+                          <View style={styles.dataFormGroupFieldWrapper}>
+                            <TextField fullWidth={true}/>
+                          </View>
+                        </View>
+                      </View>
+                    </View>
+                    <View style={styles.dataFormGroupRowBox}>
+                      <View style={styles.dataFormGroupRowWrapper}>
+                        <CardText>
+                          <Chip>Gadget</Chip>
+                        </CardText>
+                      </View>
+                    </View>
+                </Card>
+            <View style={styles.dataFormGroupBox}>
+              <View style={styles.dataFormGroupWrapper}>
+                <Card>
+                  <CardHeader title="Settings"/>
+                    <View style={styles.dataFormGroupRowBox}>
+                      <View style={styles.dataFormGroupRowWrapper}>
+                        <View style={styles.dataFormGroupColumnBox}>
+                          <View style={styles.dataFormGroupColumnWrapper}>
+                            <CardText>
+                              <Slider description="Rating" defaultValue={0.5} />
+                            </CardText>
+                          </View>
+                        </View>
+                        <View style={styles.dataFormGroupColumnBox}>
+                          <View style={styles.dataFormGroupColumnWrapper}>
+                            <CardText>
+                              <Toggle label="Hidden" />
+                              <Toggle label="Available" />
+                              <Toggle label="Sale" />
+                            </CardText>
+                          </View>
+                        </View>
+                      </View>
+                    </View>
+                </Card>
             </View>
           </View>
         </View>
-        <View style={styles.dataFormContainerBox}>
-          <View style={styles.dataFormContainerBoxWrapper}>
-            <Toolbar>
-              <ToolbarGroup>
-              </ToolbarGroup>
-              <ToolbarGroup>
-                <IconButton iconClassName="material-icons" tooltip="Save Item">save</IconButton>
-                <IconButton iconClassName="material-icons" tooltip="Delete Item">delete</IconButton>
-              </ToolbarGroup>
-            </Toolbar>
-            <View style={styles.formListBox}>
-              <View style={styles.formListBoxWrapper}>
-                <View>
-                  <Subheader style={{left:0}}>Item</Subheader>
-                </View>
-                <View style={styles.styleItemWrapper}>
-                  <canvas id="myCanvas" style={{border:'1px solid #CCCCCC', width:'200', height:'200'}}/>
-                  <TextField hintText="Name"/>
-                  <TextField multiLine={true} rows={1} rowsMax={4} hintText="Description"/>
-                </View>
-                <View>
-                  <Subheader>Tags</Subheader>
-                </View>
-                <View style={styles.styleChipWrapper}>
-                  <Chip>Gadget</Chip>
-                </View>
-              </View>
             </View>
+            </ScrollView>
           </View>
         </View>
       </View>
@@ -336,27 +523,6 @@ const mapDispatchToPropsAppDrawer = (dispatch) => {
   }
 }
 
-let AppFooterElement = () => {
-  return (
-    <View style={styles.appFooterBox}>
-      <View style={styles.appFooterBoxWrapper}>
-        <Toolbar style={toolbarStyle}>
-          <Stepper activeStep={2}>
-            <Step>
-              <StepLabel>Select theme</StepLabel>
-            </Step>
-            <Step>
-              <StepLabel>Manage Content</StepLabel>
-            </Step>
-            <Step>
-              <StepLabel>Create workflow</StepLabel>
-            </Step>
-          </Stepper>
-        </Toolbar>
-      </View>
-    </View>
-  )
-}
 /* DrawerElement shown in the interface */
 let DrawerElement = ({drawerstate, handleClose}) => {
   return (
@@ -433,7 +599,6 @@ const App = () => (
       <DrawerElement/>
       <AppBarElement/>
       <AppContentElement/>
-      <AppFooterElement/>
     </div>
   </MuiThemeProvider>
 );
