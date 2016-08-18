@@ -63,18 +63,101 @@ body {
   width: 100%;
 }
 
-.ckPokemonTest1 {
+.listItemBox {
   display: flex;
-  width: 100px;
-  height: 100px;
+  height: 80px;
   position: relative;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid red;
 }
 
-.ckPokemonTest2 {
+.listItemWrapper {
   position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-grow: 1;
+}
+
+.listItemImageBox {
+  width: 80px;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.listItemImageBox img,
+.listItemImage {
   max-width: 100%;
   height: auto;
 }
+
+.listItemTextBox {
+  flex-grow: 1;
+  position: relative;
+}
+
+.listItemTextWrapper {
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px;
+}
+
+.listItemTextTitleBox {
+  height: 22px;
+  position: relative;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.listItemTextTitleWrapper {
+  position: absolute;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.listItemTextTitleWrapper span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+}
+
+.listItemTextDescriptionBox {
+  flex-grow: 1;
+  position: relative;
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.541176);
+}
+
+.listItemTextDescriptionWrapper {
+  position: absolute;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.listItemTextDescriptionWrapper p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
