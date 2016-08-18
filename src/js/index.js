@@ -42,12 +42,12 @@ injectTapEventPlugin();
 
 var styles = StyleSheet.create({
 
-  appContentBox: {
+  applicationContentBox: {
     position: 'relative',
     flexGrow: 1
   },
 
-  appContentWrapper: {
+  applicationContentWrapper: {
     flexDirection: 'row',
     position: 'absolute',
     top: 0,
@@ -103,7 +103,7 @@ var styles = StyleSheet.create({
   },
 
   dataFormToolWrapper: {
-    // position: 'absolute',
+    //position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
@@ -125,12 +125,13 @@ var styles = StyleSheet.create({
 
   dataFormGroupBox: {
     position: 'relative',
-    flexGrow: 1,
-    // marginLeft: 5
+    padding:5,
+    borderWidth: 1,
+    borderColor: 'pink'
   },
 
   dataFormGroupWrapper: {
-    position: 'absolute',
+    //position: 'absolute',
     top: 0,
     bottom: 0,
     left: 0,
@@ -139,12 +140,15 @@ var styles = StyleSheet.create({
 
   dataFormGroupRowBox: {
     position: 'relative',
-    flexGrow: 1,
-    padding: 17
+    //flexGrow: 1,
+    padding:2,
+    borderWidth: 1,
+    borderColor: 'yellow'
+
   },
 
   dataFormGroupRowWrapper: {
-    // position:'absolute',
+    //position:'absolute',
     flexDirection:'row',
     top: 0,
     bottom: 0,
@@ -200,7 +204,7 @@ var styles = StyleSheet.create({
 
   dataFormGroupLabelBox: {
     position: 'relative',
-    width: 'auto',
+    width: 75,
     marginRight: 10,
     borderWidth: 1,
     borderColor: 'blue',
@@ -215,6 +219,14 @@ var styles = StyleSheet.create({
     left: 0,
     right: 0
   },
+
+  formImage: {
+    width: 300,
+    height: 'auto',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'red'
+  }
 
 });
 
@@ -256,8 +268,8 @@ const reducers = combineReducers({
 // Declaring a redux store called store and registering the redux reducer to it. There should only be one store declared.
 let store = createStore(reducers)
 
-// AppBarElement shown in the interface
-const AppBarElement = () => (
+// ApplicationBar shown in the interface
+const ApplicationBar = () => (
   <AppBar
     title="Content"
     onLeftIconButtonTouchTap={()=>{store.dispatch(toggleDrawer())}}
@@ -265,78 +277,30 @@ const AppBarElement = () => (
   />
 );
 
-const mapStateToPropsAppContent = (state) => {
+const mapStateToPropsApplicationContent = (state) => {
   return {
     listItemTemplate: '<div>Hello, World</div>'
   }
 }
 
-const mapDispatchToPropsAppContent = (dispatch) => {
+const mapDispatchToPropsApplicationContent = (dispatch) => {
   return {
     renderListItem: ()=>{ return('<div><i class="material-icons">more_vert</i></div>')}
   }
 }
 
-// Everything below here is for the AppContentDataList
-let AppContentDataListElement = () => {
+// Everything below here is for the DataList
+let DataList = () => {
   var _scrollView: ScrollView;
   return (
     <View style={styles.dataListBox}>
       <View style={styles.dataListWrapper}>
-        <AppContentDataListToolbarElement/>
+        <DataListTool/>
         <View style={styles.dataListContentBox}>
           <View style={styles.dataListContentWrapper}>
             <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
               scrollEventThrottle={200}>
               <List>
-                <ListItem>
-                  <div className="itemList">
-                    <div className="listImage">
-                      <img src="../images/dog1.jpg"/>
-                    </div>
-                    <div className="listText">
-                      <div className='labelCSS'>
-                        Title Here
-                      </div>
-                      <div className='descriptionCSS'>
-                        Your status is visible to everyone you use.
-                      </div>
-                    </div>
-                  </div>
-                </ListItem>
-                <Divider/>
-                <ListItem>
-                  <div className="itemList">
-                    <div className="listImage">
-                      <img src="../images/dog5.jpg"/>
-                    </div>
-                    <div className="listText">
-                      <div className='labelCSS'>
-                        Title Here
-                      </div>
-                      <div className='descriptionCSS'>
-                        Your status is visible to everyone you use.
-                      </div>
-                    </div>
-                  </div>
-                </ListItem>
-                <Divider/>
-                <ListItem>
-                  <div className="itemList">
-                  <div className="listImage">
-                    <img src="../images/dog3.png"/>
-                  </div>
-                    <div className="listText">
-                      <div className='labelCSS'>
-                        Title Here
-                      </div>
-                      <div className='descriptionCSS'>
-                        Your status is visible to everyone you use.
-                      </div>
-                    </div>
-                  </div>
-                </ListItem>
-                <Divider/>
                 <ListItem>
                   <div className="listItemBox">
                     <div className="listItemWrapper">
@@ -362,33 +326,77 @@ let AppContentDataListElement = () => {
                 </ListItem>
                 <Divider/>
                 <ListItem>
-                  <div className="itemList">
-                    <div className="listText">
-                      <div className='labelCSS'>
-                        Title Here
+                  <div className="listItemBox">
+                    <div className="listItemWrapper">
+                      <div className="listItemImageBox">
+                        <img src="../images/dog3.png"/>
                       </div>
-                      <div className='descriptionCSS'>
-                        Your status is visible to everyone you use.
+                      <div className="listItemTextBox">
+                        <div className="listItemTextWrapper">
+                          <div className="listItemTextTitleBox">
+                            <div className="listItemTextTitleWrapper">
+                              <span>I am very very very long title</span>
+                            </div>
+                          </div>
+                          <div className="listItemTextDescriptionBox">
+                            <div className="listItemTextDescriptionWrapper">
+                              <p>I am very very very very very very very very very very very very very very long description</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </ListItem>
                 <Divider/>
                 <ListItem>
-                  <div className="itemList">
-                    <div className="listImage">
-                      <img src="../images/dog2.jpg" className="img-circle" height="100%"/>
-                    </div>
-                    <div className="listText">
-                      <div className='labelCSS'>
-                        Title Here
+                  <div className="listItemBox">
+                    <div className="listItemWrapper">
+                      <div className="listItemImageBox">
+                        <img src="../images/dog5.jpg"/>
                       </div>
-                      <div className='descriptionCSS'>
-                        Your status is visible to everyone you use.
+                      <div className="listItemTextBox">
+                        <div className="listItemTextWrapper">
+                          <div className="listItemTextTitleBox">
+                            <div className="listItemTextTitleWrapper">
+                              <span>I am very very very long title</span>
+                            </div>
+                          </div>
+                          <div className="listItemTextDescriptionBox">
+                            <div className="listItemTextDescriptionWrapper">
+                              <p>I am very very very very very very very very very very very very very very long description</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </ListItem>
+                <Divider/>
+                <ListItem>
+                  <div className="listItemBox">
+                    <div className="listItemWrapper">
+                      <div className="listItemImageBox">
+                        <img src="../images/dog4.jpg"/>
+                      </div>
+                      <div className="listItemTextBox">
+                        <div className="listItemTextWrapper">
+                          <div className="listItemTextTitleBox">
+                            <div className="listItemTextTitleWrapper">
+                              <span>I am very very very long title</span>
+                            </div>
+                          </div>
+                          <div className="listItemTextDescriptionBox">
+                            <div className="listItemTextDescriptionWrapper">
+                              <p>I am very very very very very very very very very very very very very very long description</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ListItem>
+                <Divider/>
               </List>
             </ScrollView>
           </View>
@@ -398,17 +406,18 @@ let AppContentDataListElement = () => {
   )
 }
 
-let AppContentDataListToolbarElement = () => {
+// Everything down here is DataListTool
+let DataListTool = () => {
   return (
     <View style={styles.dataListToolBox}>
       <View style={styles.dataListToolWrapper}>
         <Toolbar>
           <ToolbarGroup>
-            <AppContentDataListToolbarSearchButton/>
+            <IconButton iconClassName="material-icons">search</IconButton>
           </ToolbarGroup>
           <ToolbarGroup>
-            <AppContentDataListToolbarSortButton/>
-            <AppContentDataListToolbarAddButton/>
+            <IconButton iconClassName="material-icons">sort</IconButton>
+            <IconButton iconClassName="material-icons">add</IconButton>
           </ToolbarGroup>
         </Toolbar>
       </View>
@@ -416,40 +425,22 @@ let AppContentDataListToolbarElement = () => {
   )
 }
 
-let AppContentDataListToolbarSearchButton = () => {
-  return (
-    <IconButton iconClassName="material-icons">search</IconButton>
-  )
-}
-
-let AppContentDataListToolbarSortButton = () => {
-  return (
-    <IconButton iconClassName="material-icons">sort</IconButton>
-  )
-}
-
-let AppContentDataListToolbarAddButton = () => {
-  return (
-    <IconButton iconClassName="material-icons">add</IconButton>
-  )
-}
-
-// Everything below here is for the AppContentFormList
-let AppContentDataFormElement = () => {
+// Everything below here is for the ApplicationContentFormList
+let DataForm = () => {
   var _scrollView: ScrollView;
   return (
     <View style={styles.dataFormBox}>
       <View style={styles.dataFormWrapper}>
-        <AppContentDataFormToolbar/>
+        <DataFormTool/>
         <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
           scrollEventThrottle={200}>
           <View style={styles.dataFormGroupBox}>
             <View style={styles.dataFormGroupWrapper}>
               <View style={styles.dataFormGroupRowBox}>
                 <View style={styles.dataFormGroupRowWrapper}>
-                  <div className="formImage">
-                      <img src="images/furniture.jpg" className="formImageImg"/>
-                  </div>
+                  <View style={styles.formImage}>
+                    <Image source={require('../images/furniture.jpg')}/>
+                  </View>
                 </View>
               </View>
               <View style={styles.dataFormGroupRowBox}>
@@ -458,7 +449,7 @@ let AppContentDataFormElement = () => {
                     <View style={styles.dataFormGroupColWrapper}>
                       <View style={styles.dataFormGroupLabelBox}>
                         <View style={styles.dataFormGroupLabelWrapper}>
-                          <Text className="labelCSS">Name</Text>
+                          Name
                         </View>
                       </View>
                       <View style={styles.dataFormGroupFieldBox}>
@@ -472,7 +463,7 @@ let AppContentDataFormElement = () => {
                     <View style={styles.dataFormGroupColWrapper}>
                       <View style={styles.dataFormGroupLabelBox}>
                         <View style={styles.dataFormGroupLabelWrapper}>
-                          <Text className="labelCSS">Date</Text>
+                          Date
                         </View>
                       </View>
                       <View style={styles.dataFormGroupFieldBox}>
@@ -488,7 +479,7 @@ let AppContentDataFormElement = () => {
                 <View style={styles.dataFormGroupRowWrapper}>
                   <View style={styles.dataFormGroupLabelBox}>
                     <View style={styles.dataFormGroupLabelWrapper}>
-                      <Text className="labelCSS">Description</Text>
+                      Description
                     </View>
                   </View>
                   <View style={styles.dataFormGroupFieldBox}>
@@ -503,32 +494,32 @@ let AppContentDataFormElement = () => {
                   <Chip>Gadget</Chip>
                 </View>
               </View>
-              <Divider />
-              <View style={styles.dataFormGroupBox}>
-                <View style={styles.dataFormGroupWrapper}>
-                  <View style={styles.dataFormGroupRowBox}>
-                    <View style={styles.dataFormGroupRowWrapper}>
-                      <View style={styles.dataFormGroupColBox}>
-                        <View style={styles.dataFormGroupColWrapper}>
-                          <View style={styles.dataFormGroupFieldBox}>
-                            <View style={styles.dataFormGroupFieldWrapper}>
-                              <Slider defaultValue={0.5} description="Rating"/>
-                            </View>
-                          </View>
+            </View>
+          </View>
+          <Divider />
+          <View style={styles.dataFormGroupBox}>
+            <View style={styles.dataFormGroupWrapper}>
+              <View style={styles.dataFormGroupRowBox}>
+                <View style={styles.dataFormGroupRowWrapper}>
+                  <View style={styles.dataFormGroupColBox}>
+                    <View style={styles.dataFormGroupColWrapper}>
+                      <View style={styles.dataFormGroupFieldBox}>
+                        <View style={styles.dataFormGroupFieldWrapper}>
+                          <Slider defaultValue={0.5} description="Rating"/>
                         </View>
                       </View>
-                      <View style={styles.dataFormGroupColBox}>
-                        <View style={styles.dataFormGroupColWrapper}>
-                          <View style={styles.dataFormGroupLabelBox}>
-                            <View style={styles.dataFormGroupLabelWrapper}>
-                              <Text className="labelCSS">Hidden</Text>
-                            </View>
-                          </View>
-                          <View style={styles.dataFormGroupFieldBox}>
-                            <View style={styles.dataFormGroupFieldWrapper}>
-                              <Toggle/>
-                            </View>
-                          </View>
+                    </View>
+                  </View>
+                  <View style={styles.dataFormGroupColBox}>
+                    <View style={styles.dataFormGroupColWrapper}>
+                      <View style={styles.dataFormGroupLabelBox}>
+                        <View style={styles.dataFormGroupLabelWrapper}>
+                          Hidden
+                        </View>
+                      </View>
+                      <View style={styles.dataFormGroupFieldBox}>
+                        <View style={styles.dataFormGroupFieldWrapper}>
+                          <Toggle/>
                         </View>
                       </View>
                     </View>
@@ -543,16 +534,17 @@ let AppContentDataFormElement = () => {
   )
 }
 
-let AppContentDataFormToolbar = () => {
+// Everything down here is DataFormTool
+let DataFormTool = () => {
   return (
     <View style={styles.dataFormToolBox}>
       <View style={styles.dataFormToolWrapper}>
         <Toolbar>
           <ToolbarGroup/>
           <ToolbarGroup>
-            <AppContentDataFormToolbarVisibilityButton/>
-            <AppContentDataFormToolbarSaveButton/>
-            <AppContentDataFormToolbarDeleteButton/>
+            <IconButton iconClassName="material-icons">visibility</IconButton>
+            <IconButton iconClassName="material-icons">save</IconButton>
+            <IconButton iconClassName="material-icons">delete</IconButton>
           </ToolbarGroup>
         </Toolbar>
       </View>
@@ -560,40 +552,22 @@ let AppContentDataFormToolbar = () => {
   )
 }
 
-let AppContentDataFormToolbarVisibilityButton = () => {
+// ApplicationContent shown in the interface
+let ApplicationContent = () => {
   return (
-    <IconButton iconClassName="material-icons">visibility</IconButton>
-  )
-}
-
-let AppContentDataFormToolbarSaveButton = () => {
-  return (
-    <IconButton iconClassName="material-icons">save</IconButton>
-  )
-}
-
-let AppContentDataFormToolbarDeleteButton = () => {
-  return (
-    <IconButton iconClassName="material-icons">delete</IconButton>
-  )
-}
-
-// AppContentElement shown in the interface
-let AppContentElement = () => {
-  return (
-    <View style={styles.appContentBox}>
-      <View style={styles.appContentWrapper}>
-        <AppContentDataListElement/>
-        <AppContentDataFormElement/>
+    <View style={styles.applicationContentBox}>
+      <View style={styles.applicationContentWrapper}>
+        <DataList/>
+        <DataForm/>
       </View>
     </View>
   )
 }
 
-AppContentElement = connect(
-  mapStateToPropsAppContent,
-  mapDispatchToPropsAppContent
-)(AppContentElement)
+ApplicationContent = connect(
+  mapStateToPropsApplicationContent,
+  mapDispatchToPropsApplicationContent
+)(ApplicationContent)
 
 const mapStateToPropsAppDrawer = (state) => {
   return {
@@ -613,8 +587,8 @@ const mapDispatchToPropsAppDrawer = (dispatch) => {
   }
 }
 
-// DrawerElement shown in the interface
-let DrawerElement = ({drawerstate, handleClose}) => {
+// ApplicationDrawer shown in the interface
+let ApplicationDrawer = ({drawerstate, handleClose}) => {
   return (
     <Drawer
       docked={false}
@@ -630,11 +604,11 @@ let DrawerElement = ({drawerstate, handleClose}) => {
   )
 }
 
-// Links the the mapStateToPropsAppDrawer and mapDispatchToPropsAppDrawer to DrawerElement
-DrawerElement  = connect(
+// Links the the mapStateToPropsAppDrawer and mapDispatchToPropsAppDrawer to ApplicationDrawer
+ApplicationDrawer  = connect(
   mapStateToPropsAppDrawer,
   mapDispatchToPropsAppDrawer
-)(DrawerElement)
+)(ApplicationDrawer)
 
 // Use to control theme
 const muiTheme = getMuiTheme({
@@ -686,9 +660,9 @@ const muiTheme = getMuiTheme({
 const App = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div className="app-box-wrapper">
-      <DrawerElement/>
-      <AppBarElement/>
-      <AppContentElement/>
+      <ApplicationDrawer/>
+      <ApplicationBar/>
+      <ApplicationContent/>
     </div>
   </MuiThemeProvider>
 );
