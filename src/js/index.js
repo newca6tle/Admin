@@ -338,16 +338,24 @@ let AppContentDataListElement = () => {
                 </ListItem>
                 <Divider/>
                 <ListItem>
-                  <div className="itemList">
-                  <div className="ckPokemonTest1">
-                    <img src="../images/dog5.jpg" className="ckPokemonTest2"/>
-                  </div>
-                    <div className="listText">
-                      <div className='labelCSS'>
-                        CK Pokemon Test
+                  <div className="listItemBox">
+                    <div className="listItemWrapper">
+                      <div className="listItemImageBox">
+                        <img src="../images/dog1.jpg"/>
                       </div>
-                      <div className='descriptionCSS'>
-                        Your status is visible to everyone you use.
+                      <div className="listItemTextBox">
+                        <div className="listItemTextWrapper">
+                          <div className="listItemTextTitleBox">
+                            <div className="listItemTextTitleWrapper">
+                              <span>I am very very very long title</span>
+                            </div>
+                          </div>
+                          <div className="listItemTextDescriptionBox">
+                            <div className="listItemTextDescriptionWrapper">
+                              <p>I am very very very very very very very very very very very very very very long description</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
