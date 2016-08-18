@@ -19,38 +19,6 @@ body {
   display: flex;
 }
 
-.itemList {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-}
-
-.listImage {
-  /*width: 200px;
-  height: 100px;*/
-  border-style: solid;
-  border-width: 1px;
-  border-color: red;
-}
-
-.listText {
-  display: flex;
-  padding: 5px 20px;
-  flex-direction: column;
-  line-height: 20px;
-  flex-grow: 1;
-}
-
-.labelCSS {
-  opacity: 0.87;
-  font-size: 14px;
-}
-
-.descriptionCSS {
-  opacity: 0.54;
-  font-size: 80%;
-}
-
 .formImage {
   width: 300px;
   height: auto;
@@ -90,6 +58,7 @@ body {
 
 .listItemImageBox img,
 .listItemImage {
+  max-height: 78px;
   max-width: 100%;
   height: auto;
 }
@@ -160,4 +129,3 @@ body {
   flex-grow: 1;
   overflow: hidden;
 }
-
