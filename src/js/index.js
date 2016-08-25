@@ -20,14 +20,87 @@ import DataForm from './components/DataForm';
 // This is required to simulate tapping.
 injectTapEventPlugin();
 
+const initialState = {
+  drawer: false,
+  resource: {
+    data: [
+      {
+        "id": 1,
+        "name": "Product 1",
+        "image": "dog1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Product 2",
+        "image": "dog1.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Product 3",
+        "image": "dog1.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Product 4",
+        "image": "dog1.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Product 5",
+        "image": "dog1.jpg"
+      }
+    ]
+  }
+};
+
+var data1 = [
+  {
+    "id": 10,
+    "name": "Product 10",
+    "image": "dog1.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Product 11",
+    "image": "dog1.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Product 12",
+    "image": "dog1.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Product 13",
+    "image": "dog1.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Product 14",
+    "image": "dog1.jpg"
+  }
+];
+
+const RESOURCE_READ   = 'RESOURCE_READ';
+
+function resourceRead() {
+  return {
+    type: RESOURCE_READ
+  }
+}
+
+function resource (state = initialState.resource, action) {
+  switch (action.type) {
+    case RESOURCE_READ:
+      return {...state, data: [...state.data, ...data1]};
+
+    default:
+      return state
+  }
+}
 
 const TOGGLE_DRAWER   = 'TOGGLE_DRAWER';
 const CLOSE_DRAWER    = 'CLOSE_DRAWER';
-
-// Declaring initial state of the drawer
-const initialState = {
-  drawer: false
-};
 
 // To return the action call before sending it into the drawer reducer
 function toggleDrawer(text) {
@@ -53,7 +126,8 @@ function drawer (state = initialState.drawer, action) {
 
 // Combining all reducers before loading into store.
 const reducers = combineReducers({
-  drawer
+  drawer,
+  resource
 })
 
 // Declaring a redux store called store and registering the redux reducer to it. There should only be one store declared.
@@ -68,17 +142,6 @@ const ApplicationBar = () => (
   />
 );
 
-const mapStateToPropsApplicationContent = (state) => {
-  return {
-    listItemTemplate: '<div>Hello, World</div>'
-  }
-}
-
-const mapDispatchToPropsApplicationContent = (dispatch) => {
-  return {
-    renderListItem: ()=>{ return('<div><i class="material-icons">more_vert</i></div>')}
-  }
-}
 
 // ApplicationContent shown in the interface
 let ApplicationContent = () => {
@@ -92,10 +155,41 @@ let ApplicationContent = () => {
   )
 }
 
+/*
+const mapStateToPropsApplicationContent = (state) => {
+  return {
+    listItemTemplate: '<div>Hello, World</div>'
+  }
+}
+
+const mapDispatchToPropsApplicationContent = (dispatch) => {
+  return {
+    renderListItem: ()=>{ return('<div><i class="material-icons">more_vert</i></div>')}
+  }
+}
+
 ApplicationContent = connect(
   mapStateToPropsApplicationContent,
   mapDispatchToPropsApplicationContent
 )(ApplicationContent)
+*/
+
+// ApplicationDrawer shown in the interface
+let ApplicationDrawer = ({drawerstate, handleClose}) => {
+  return (
+    <Drawer
+      docked={false}
+      width={200}
+      open={drawerstate}
+      onRequestChange={() => {handleClose()}}
+    >
+      <AppBar title="Create" showMenuIconButton={false}/>
+      <MenuItem>Home</MenuItem>
+      <MenuItem>Content</MenuItem>
+      <MenuItem>Navigation</MenuItem>
+    </Drawer>
+  )
+}
 
 const mapStateToPropsAppDrawer = (state) => {
   return {
@@ -113,23 +207,6 @@ const mapDispatchToPropsAppDrawer = (dispatch) => {
       dispatch({type: CLOSE_DRAWER})
     }
   }
-}
-
-// ApplicationDrawer shown in the interface
-let ApplicationDrawer = ({drawerstate, handleClose}) => {
-  return (
-    <Drawer
-      docked={false}
-      width={200}
-      open={drawerstate}
-      onRequestChange={() => {handleClose()}}
-    >
-      <AppBar title="Create" showMenuIconButton={false}/>
-      <MenuItem>Home</MenuItem>
-      <MenuItem>Content</MenuItem>
-      <MenuItem>Navigation</MenuItem>
-    </Drawer>
-  )
 }
 
 // Links the the mapStateToPropsAppDrawer and mapDispatchToPropsAppDrawer to ApplicationDrawer
