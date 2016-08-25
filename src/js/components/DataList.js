@@ -142,4 +142,25 @@ let DataList = () => {
   )
 }
 
+// modify this code for DataList
+/*
+const mapStateToPropsDataList = (state) => {
+  return {
+    data: state.resource.data
+  }
+}
+
+const mapDispatchToPropsDataList = (dispatch) => {
+  return {
+    read: ()=>{ resourceRead(); }
+  }
+}
+
+
+DataList = connect(
+  mapStateToPropsDataList,
+  mapDispatchToPropsDataList
+)(DataList)
+*/
+
 export default DataList;
