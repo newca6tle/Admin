@@ -26,28 +26,43 @@ const initialState = {
     data: [
       {
         "id": 1,
-        "name": "Product 1",
-        "image": "dog1.jpg"
+        "name": "I Like Dogs",
+        "image": "../images/dog1.jpg"
       },
       {
         "id": 2,
         "name": "Product 2",
-        "image": "dog1.jpg"
+        "image": "../images/dog2.jpg"
       },
       {
         "id": 3,
         "name": "Product 3",
-        "image": "dog1.jpg"
+        "image": "../images/dog3.png"
       },
       {
         "id": 4,
         "name": "Product 4",
-        "image": "dog1.jpg"
+        "image": "../images/dog4.jpg"
       },
       {
         "id": 5,
         "name": "Product 5",
-        "image": "dog1.jpg"
+        "image": "../images/dog5.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Product 6",
+        "image": "../images/dog5.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Product 7",
+        "image": "../images/dog5.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Product 8",
+        "image": "../images/dog5.jpg"
       }
     ]
   }
@@ -55,29 +70,29 @@ const initialState = {
 
 var data1 = [
   {
+    "id": 9,
+    "name": "Product 9",
+    "image": "../images/dog1.jpg"
+  },
+  {
     "id": 10,
     "name": "Product 10",
-    "image": "dog1.jpg"
+    "image": "../images/dog1.jpg"
   },
   {
     "id": 11,
     "name": "Product 11",
-    "image": "dog1.jpg"
+    "image": "../images/dog2.jpg"
   },
   {
     "id": 12,
     "name": "Product 12",
-    "image": "dog1.jpg"
+    "image": "../images/dog1.jpg"
   },
   {
     "id": 13,
     "name": "Product 13",
-    "image": "dog1.jpg"
-  },
-  {
-    "id": 14,
-    "name": "Product 14",
-    "image": "dog1.jpg"
+    "image": "../images/dog1.jpg"
   }
 ];
 
@@ -93,7 +108,6 @@ function resource (state = initialState.resource, action) {
   switch (action.type) {
     case RESOURCE_READ:
       return {...state, data: [...state.data, ...data1]};
-
     default:
       return state
   }

@@ -87,7 +87,8 @@ var styles = StyleSheet.create({
     position: 'relative',
     padding:5,
     borderWidth: 1,
-    borderColor: 'pink'
+    borderColor: 'pink',
+    flexGrow: 1
   },
 
   dataFormGroupWrapper: {
@@ -100,7 +101,7 @@ var styles = StyleSheet.create({
 
   dataFormGroupRowBox: {
     position: 'relative',
-    //flexGrow: 1,
+    flexGrow: 1,
     padding:2,
     borderWidth: 1,
     borderColor: 'yellow'
@@ -180,14 +181,100 @@ var styles = StyleSheet.create({
     right: 0
   },
 
-  formImage: {
-    width: 300,
-    height: 'auto',
-    borderStyle: 'solid',
+//For image thumbnail component
+  dataFormGroupImageBox: {
+    position: 'relative',
+    flexGrow: 1,
+    //borderWidth: 1,
+    //borderColor: 'blue',
+    height: '200'
+  },
+
+  dataFormGroupImageWrapper: {
+    position: 'absolute',
+    flexDirection: 'row',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  dataFormGroupAddBox: {
+    position: 'relative',
+    width: 200,
+    margin: 5,
+    borderWidth: 1,
+    borderColor: 'orange'
+  },
+
+  dataFormGroupAddWrapper: {
+    // position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  dataFormGroupImageListBox: {
+    position: 'relative',
+    flexGrow: 1,
+    borderWidth: 1,
+    borderColor: 'purple'
+  },
+
+  dataFormGroupImageListWrapper: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  roImageBox: {
+    flexGrow: 1,
+    position: 'relative',
     borderWidth: 1,
     borderColor: 'red'
-  }
+  },
 
+  roImageWrapper: {
+    position: 'absolute',
+    //flexDirection: 'column',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  formImage: {
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'red',
+    resizeMode: 'contain'
+  },
+
+  roImage: {
+    height: 200,
+    width: 200,
+    resizeMode: 'contain',
+    borderWidth: 1,
+    //borderColor: 'black',
+    //position: 'absolute',
+  },
+
+  dataFormImageBox: {
+    width: 200,
+    minWidth: 200,
+    margin: 1,
+    //display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  test: {
+    position: 'absolute',
+    backgroundColor: 'transparent'
+  }
 });
 
 export default styles;
