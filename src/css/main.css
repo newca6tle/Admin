@@ -35,6 +35,7 @@ body {
   display: flex;
   height: 80px;
   position: relative;
+  background-color: lightgreen;
 }
 
 .listItemWrapper {
@@ -45,18 +46,31 @@ body {
   right: 0;
   display: flex;
   flex-grow: 1;
-}
-
-.listItemImageBox {
-  width: 80px;
-  min-width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid black;
 }
 
-.listItemImageBox img,
+.listItemImageBox {
+  position: relative;
+  width: 80px;
+  min-width: 80px;
+  background-image: url("../../images/list_placeholder.png");
+  background-size: 80px 80px;
+  display: flex;
+}
+
+.listItemImageWrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  max-height: 78px;
+  max-width: 100%;
+  height: auto;
+}
+
+.listItemImageWrapper img,
 .listItemImage {
   max-height: 78px;
   max-width: 100%;
