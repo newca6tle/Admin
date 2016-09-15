@@ -2,12 +2,17 @@ import React from 'react';
 import {View, ScrollView, Image} from 'react-native';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Divider from 'material-ui/Divider';
 import Toggle from 'material-ui/Toggle';
 import Chip from 'material-ui/Chip';
 import Slider from 'material-ui/Slider';
 import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import Star from 'material-ui/svg-icons/toggle/star';
+import Clear from 'material-ui/svg-icons/content/clear';
 
 import styles from '../Styles';
 
@@ -42,8 +47,75 @@ let DataForm = () => {
             <View style={styles.dataFormGroupWrapper}>
               <View style={styles.dataFormGroupRowBox}>
                 <View style={styles.dataFormGroupRowWrapper}>
-                  <View style={styles.formImage}>
-                    <Image source={'../images/furniture.jpg'}/>
+                  <View style={styles.dataFormGroupImageBox}>
+                    <View style = {styles.dataFormGroupImageWrapper}>
+
+                      <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
+                        scrollEventThrottle={200} horizontal={true}>
+
+                          <View style = {styles.dataFormImageBox}>
+                            <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                              <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                              <Image style={styles.roImage} source={'../images/dog5.jpg'}/>
+                          </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog1.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog4.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog5.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog1.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog4.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog5.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog1.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog4.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog5.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog1.jpg'}/>
+                        </View>
+                        <View style = {styles.dataFormImageBox}>
+                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
+                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
+                          <Image style={styles.roImage} source={'../images/dog4.jpg'}/>
+                        </View>
+                      </ScrollView>
+                      <View style = {styles.test}><FloatingActionButton><ContentAdd/></FloatingActionButton></View>
+                    </View>
                   </View>
                 </View>
               </View>

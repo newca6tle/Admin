@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, ScrollView} from 'react-native';
+import { Provider, connect } from 'react-redux'
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import styles from '../Styles';
+import LazyLoad from 'react-lazy-load';
 
 // Everything down here is DataListToolbar
 let DataListToolbar = () => {
@@ -25,142 +27,127 @@ let DataListToolbar = () => {
   )
 }
 
+var InfiniteScrollView = React.createClass({
+  loading: false,
+
+  /*
+    propTypes: {
+      'data-OnNext': React.PropTypes.func
+    },
+  */
+
+  handleScroll: function(e) {
+    var height = this._scrollView.getInnerViewNode().childNodes[0].clientHeight;
+    var offSet = 200;
+    var scrollTop = this._scrollView.getScrollableNode().clientHeight + this._scrollView.getScrollableNode().scrollTop;
+
+    if (scrollTop > (height - offSet) && !this.loading) {
+      this.loading = true;
+      this.props.onNext();
+    }
+  },
+
+  render: function() {
+    return (
+      <ScrollView
+        {...this.props}
+        ref={(scrollView) => { this._scrollView = scrollView; }}
+        onScroll={(e)=>{this.handleScroll(e)}}
+        onContentSizeChange={this.loading=false}>
+          {this.props.children}
+      </ScrollView>
+    );
+  }
+});
+
+function ImageImage(props) {
+
+    return <img src={props.item}/>;
+
+}
+
+let DataListContent = ({items, handleOnNext}) => {
+  console.log('items', items.length)
+  var listItems = items.map((item, index) => {
+    return (
+      <ListItem key={index}>
+        <div className="listItemBox">
+          <div className="listItemWrapper">
+            <div className="listItemImageBox">
+              <LazyLoad>
+                <div className="listItemImageWrapper">
+                  <ImageImage item={item.image}/>
+                </div>
+              </LazyLoad>
+            </div>
+            <div className="listItemTextBox">
+              <div className="listItemTextWrapper">
+                <div className="listItemTextTitleBox">
+                  <div className="listItemTextTitleWrapper">
+                    <span>{item.name}</span>
+                  </div>
+                </div>
+                <div className="listItemTextDescriptionBox">
+                  <div className="listItemTextDescriptionWrapper">
+                    <p>{item.id}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ListItem>
+    );
+  });
+
+  return (
+      <View style={styles.dataListContentBox}>
+        <View style={styles.dataListContentWrapper}>
+          <InfiniteScrollView
+            scrollEventThrottle={500}
+            onNext={()=>{handleOnNext();}}
+            >
+            <List id="listView">
+              {listItems}
+            </List>
+          </InfiniteScrollView>
+        </View>
+      </View>
+    )
+}
+
+const RESOURCE_READ   = 'RESOURCE_READ';
+
+const mapStateToPropsDataListContent = (state) => {
+  return {
+    items: state.resource.data
+  }
+}
+
+const mapDispatchToPropsDataListContent = (dispatch) => {
+  return {
+    handleOnNext: () => {
+      dispatch({type: RESOURCE_READ})
+    }
+  }
+}
+
+// Links the the mapStateToPropsAppDrawer and mapDispatchToPropsAppDrawer to ApplicationDrawer
+DataListContent  = connect(
+  mapStateToPropsDataListContent,
+  mapDispatchToPropsDataListContent
+)(DataListContent)
+
 // Everything below here is for the DataList
 let DataList = () => {
-  var _scrollView: ScrollView;
   return (
     <View style={styles.dataListBox}>
       <View style={styles.dataListWrapper}>
         <DataListToolbar/>
-        <View style={styles.dataListContentBox}>
-          <View style={styles.dataListContentWrapper}>
-            <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
-              scrollEventThrottle={200}>
-              <List>
-                <ListItem>
-                  <div className="listItemBox">
-                    <div className="listItemWrapper">
-                      <div className="listItemImageBox">
-                        <img src="../images/dog1.jpg"/>
-                      </div>
-                      <div className="listItemTextBox">
-                        <div className="listItemTextWrapper">
-                          <div className="listItemTextTitleBox">
-                            <div className="listItemTextTitleWrapper">
-                              <span>I am very very very long title</span>
-                            </div>
-                          </div>
-                          <div className="listItemTextDescriptionBox">
-                            <div className="listItemTextDescriptionWrapper">
-                              <p>I am very very very very very very very very very very very very very very long description</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </ListItem>
-                <Divider/>
-                <ListItem>
-                  <div className="listItemBox">
-                    <div className="listItemWrapper">
-                      <div className="listItemImageBox">
-                        <img src="../images/dog3.png"/>
-                      </div>
-                      <div className="listItemTextBox">
-                        <div className="listItemTextWrapper">
-                          <div className="listItemTextTitleBox">
-                            <div className="listItemTextTitleWrapper">
-                              <span>I am very very very long title</span>
-                            </div>
-                          </div>
-                          <div className="listItemTextDescriptionBox">
-                            <div className="listItemTextDescriptionWrapper">
-                              <p>I am very very very very very very very very very very very very very very long description</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </ListItem>
-                <Divider/>
-                <ListItem>
-                  <div className="listItemBox">
-                    <div className="listItemWrapper">
-                      <div className="listItemImageBox">
-                        <img src="../images/dog5.jpg"/>
-                      </div>
-                      <div className="listItemTextBox">
-                        <div className="listItemTextWrapper">
-                          <div className="listItemTextTitleBox">
-                            <div className="listItemTextTitleWrapper">
-                              <span>I am very very very long title</span>
-                            </div>
-                          </div>
-                          <div className="listItemTextDescriptionBox">
-                            <div className="listItemTextDescriptionWrapper">
-                              <p>I am very very very very very very very very very very very very very very long description</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </ListItem>
-                <Divider/>
-                <ListItem>
-                  <div className="listItemBox">
-                    <div className="listItemWrapper">
-                      <div className="listItemImageBox">
-                        <img src="../images/dog4.jpg"/>
-                      </div>
-                      <div className="listItemTextBox">
-                        <div className="listItemTextWrapper">
-                          <div className="listItemTextTitleBox">
-                            <div className="listItemTextTitleWrapper">
-                              <span>I am very very very long title</span>
-                            </div>
-                          </div>
-                          <div className="listItemTextDescriptionBox">
-                            <div className="listItemTextDescriptionWrapper">
-                              <p>I am very very very very very very very very very very very very very very long description</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </ListItem>
-                <Divider/>
-              </List>
-            </ScrollView>
-          </View>
-        </View>
+        <DataListContent/>
       </View>
     </View>
   )
 }
-
-// modify this code for DataList
-/*
-const mapStateToPropsDataList = (state) => {
-  return {
-    data: state.resource.data
-  }
-}
-
-const mapDispatchToPropsDataList = (dispatch) => {
-  return {
-    read: ()=>{ resourceRead(); }
-  }
-}
-
-
-DataList = connect(
-  mapStateToPropsDataList,
-  mapDispatchToPropsDataList
-)(DataList)
-*/
 
 export default DataList;
