@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --port 3000 --config webpack.config.dev.js --inline --hot --colors --quiet"
+    "dev": "webpack-dev-server --port 3000 --config webpack.config.dev.js --inline --hot --colors "
   },
   "author": "",
   "license": "ISC",
@@ -13,10 +13,17 @@
     "file-loader": "^0.9.0",
     "material-ui": "^0.15.2",
     "react": "^15.3.0",
+    "react-highlight-words": "^0.3.0",
+    "react-lazy-load": "^3.0.10",
+    "react-native-infinite-scroll-view": "^0.4.2",
     "react-native-web": "0.0.40",
     "react-redux": "^4.4.5",
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.5.2",
+    "redux-infinite-scroll": "^1.0.9",
+    "redux-search": "^2.1.0",
+    "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.3",
     "url-loader": "^0.5.7"
   },
   "devDependencies": {
