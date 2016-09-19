@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {View, ScrollView, Image} from 'react-native';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
@@ -16,7 +17,7 @@ import Clear from 'material-ui/svg-icons/content/clear';
 
 import styles from '../Styles';
 
-// Everything down here is DataFormToolbar
+// DataFormToolbar to render the toolbar and its buttons
 let DataFormToolbar = () => {
   return (
     <View style={styles.DataFormToolbarBox}>
@@ -34,7 +35,36 @@ let DataFormToolbar = () => {
   )
 }
 
-// Everything below here is for the ApplicationContentFormList
+// DataFormContent to render the related images for a particular item
+let DataFormContent = ({dataListItems, dataList}) => {
+  console.log(dataList);
+  var _scrollView: ScrollView;
+  return (
+    <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
+      scrollEventThrottle={200} horizontal={true}>
+      {dataListItems.map ((item,index) => (
+        <View style = {styles.dataFormImageBox} key={index}>
+          <Image style={styles.roImage} source={item.file}/>
+          <IconButton style={{position:'absolute',top:0,right:0, padding: 0, width: 30, height: 30}} children={<Clear />}></IconButton>
+          <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}} children={<StarBorder/>}></IconButton>
+        </View>
+      ))}
+    </ScrollView>
+  )
+}
+
+const mapStateToPropsDataFormContent = (state) => {
+  return {
+    dataListItems: state.resource.data[state.active].image,
+    dataList: state.active
+  }
+}
+
+DataFormContent = connect(
+  mapStateToPropsDataFormContent
+)(DataFormContent)
+
+// DataForm render ths form
 let DataForm = () => {
   var _scrollView: ScrollView;
   return (
@@ -49,72 +79,7 @@ let DataForm = () => {
                 <View style={styles.dataFormGroupRowWrapper}>
                   <View style={styles.dataFormGroupImageBox}>
                     <View style = {styles.dataFormGroupImageWrapper}>
-
-                      <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
-                        scrollEventThrottle={200} horizontal={true}>
-
-                          <View style = {styles.dataFormImageBox}>
-                            <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                              <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                              <Image style={styles.roImage} source={'../images/dog5.jpg'}/>
-                          </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog1.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog4.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog5.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog1.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog4.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog5.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog1.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog4.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog5.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog1.jpg'}/>
-                        </View>
-                        <View style = {styles.dataFormImageBox}>
-                          <IconButton style={{position:'absolute', top: 0, right: 0, padding: 0, width: 30, height: 30}}><Clear /></IconButton>
-                            <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}><StarBorder /></IconButton>
-                          <Image style={styles.roImage} source={'../images/dog4.jpg'}/>
-                        </View>
-                      </ScrollView>
-                      <View style = {styles.test}><FloatingActionButton><ContentAdd/></FloatingActionButton></View>
+                      <DataFormContent />
                     </View>
                   </View>
                 </View>

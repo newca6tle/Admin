@@ -8,7 +8,7 @@ import Divider from 'material-ui/Divider';
 import styles from '../Styles';
 import LazyLoad from 'react-lazy-load';
 
-// Everything down here is DataListToolbar
+// DataFormToolbar to render the toolbar and its buttons
 let DataListToolbar = () => {
   return (
     <View style={styles.DataListToolbarBox}>
@@ -61,22 +61,21 @@ var InfiniteScrollView = React.createClass({
 });
 
 function ImageImage(props) {
-
     return <img src={props.item}/>;
-
 }
 
-let DataListContent = ({items, handleOnNext}) => {
+//DataListContent renders the list of items
+let DataListContent = ({items, handleOnNext, onSelect}) => {
   console.log('items', items.length)
   var listItems = items.map((item, index) => {
     return (
-      <ListItem key={index}>
+      <ListItem key={index} onClick={ () => {onSelect(index)} }>
         <div className="listItemBox">
           <div className="listItemWrapper">
             <div className="listItemImageBox">
               <LazyLoad>
                 <div className="listItemImageWrapper">
-                  <ImageImage item={item.image}/>
+                  <ImageImage item={item.image[item.starred].file}/>
                 </div>
               </LazyLoad>
             </div>
@@ -89,7 +88,7 @@ let DataListContent = ({items, handleOnNext}) => {
                 </div>
                 <div className="listItemTextDescriptionBox">
                   <div className="listItemTextDescriptionWrapper">
-                    <p>{item.id}</p>
+                    <p>{item.description}</p>
                   </div>
                 </div>
               </div>
@@ -117,6 +116,7 @@ let DataListContent = ({items, handleOnNext}) => {
 }
 
 const RESOURCE_READ   = 'RESOURCE_READ';
+const RESOURCE_SELECT = 'RESOURCE_SELECT';
 
 const mapStateToPropsDataListContent = (state) => {
   return {
@@ -128,6 +128,10 @@ const mapDispatchToPropsDataListContent = (dispatch) => {
   return {
     handleOnNext: () => {
       dispatch({type: RESOURCE_READ})
+    },
+
+    onSelect: (index) => {
+      dispatch({type: RESOURCE_SELECT, index})
     }
   }
 }
