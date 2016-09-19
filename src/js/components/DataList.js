@@ -69,33 +69,36 @@ let DataListContent = ({items, handleOnNext, onSelect}) => {
   console.log('items', items.length)
   var listItems = items.map((item, index) => {
     return (
-      <ListItem key={index} onClick={ () => {onSelect(index)} }>
-        <div className="listItemBox">
-          <div className="listItemWrapper">
-            <div className="listItemImageBox">
-              <LazyLoad>
-                <div className="listItemImageWrapper">
-                  <ImageImage item={item.image[item.starred].file}/>
-                </div>
-              </LazyLoad>
-            </div>
-            <div className="listItemTextBox">
-              <div className="listItemTextWrapper">
-                <div className="listItemTextTitleBox">
-                  <div className="listItemTextTitleWrapper">
-                    <span>{item.name}</span>
+      <div>
+        <ListItem key={index} onClick={ () => {onSelect(index)} }>
+          <div className="listItemBox">
+            <div className="listItemWrapper">
+              <div className="listItemImageBox">
+                <LazyLoad>
+                  <div className="listItemImageWrapper">
+                    <ImageImage item={item.image[item.starred].file}/>
                   </div>
-                </div>
-                <div className="listItemTextDescriptionBox">
-                  <div className="listItemTextDescriptionWrapper">
-                    <p>{item.description}</p>
+                </LazyLoad>
+              </div>
+              <div className="listItemTextBox">
+                <div className="listItemTextWrapper">
+                  <div className="listItemTextTitleBox">
+                    <div className="listItemTextTitleWrapper">
+                      <span>{item.name}</span>
+                    </div>
+                  </div>
+                  <div className="listItemTextDescriptionBox">
+                    <div className="listItemTextDescriptionWrapper">
+                      <p>{item.description}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </ListItem>
+        </ListItem>
+        <Divider/>
+      </div>
     );
   });
 
