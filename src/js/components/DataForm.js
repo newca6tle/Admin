@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {Provider, connect} from 'react-redux';
 import {View, ScrollView, Image} from 'react-native';
 import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
@@ -11,8 +11,11 @@ import Slider from 'material-ui/Slider';
 import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+
+// For favourite star icon
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import Star from 'material-ui/svg-icons/toggle/star';
+import {yellow400} from 'material-ui/styles/colors';
 import Clear from 'material-ui/svg-icons/content/clear';
 
 import styles from '../Styles';
@@ -36,33 +39,68 @@ let DataFormToolbar = () => {
 }
 
 // DataFormContent to render the related images for a particular item
-let DataFormContent = ({dataListItems, dataList}) => {
-  console.log(dataList);
+let DataFormContent = ({listItemImageArray, activeItem, handleOnStar, starredImage}) => {
   var _scrollView: ScrollView;
   return (
     <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
       scrollEventThrottle={200} horizontal={true}>
-      {dataListItems.map ((item,index) => (
+      {listItemImageArray.map ((item,index) => (
         <View style = {styles.dataFormImageBox} key={index}>
           <Image style={styles.roImage} source={item.file}/>
-          <IconButton style={{position:'absolute',top:0,right:0, padding: 0, width: 30, height: 30}} children={<Clear />}></IconButton>
-          <IconButton style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}} children={<StarBorder/>}></IconButton>
+          <IconButton
+            style={{position:'absolute',top:0,right:0, padding: 0, width: 30, height: 30}}
+            children={<Clear />}/>
+          <IconButton
+            style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}
+            children={getIconChildren(index, starredImage)}
+            onClick={ () => {handleOnStar(index,activeItem)} }/>
         </View>
       ))}
     </ScrollView>
   )
 }
 
-const mapStateToPropsDataFormContent = (state) => {
+const mapStateToPropsDataFormContent = (state, ownProps) => {
   return {
-    dataListItems: state.resource.data[state.active].image,
-    dataList: state.active
+    listItemImageArray: state.resource.data[state.active].image,
+    activeItem: state.active,
+    starredImage: state.resource.data[state.active].starred
+  }
+}
+
+const mapDispatchToPropsDataFormContent = (dispatch, ownProps) => {
+  return {
+    handleOnStar: (index, activeItem) => {
+      dispatch(starred(index, activeItem))
+    }
+  }
+}
+
+const RESOURCE_STAR = 'RESOURCE_STAR';
+
+function starred(index, activeItem) {
+  return {
+    type: RESOURCE_STAR,
+    index,
+    activeItem
   }
 }
 
 DataFormContent = connect(
-  mapStateToPropsDataFormContent
+  mapStateToPropsDataFormContent,
+  mapDispatchToPropsDataFormContent
 )(DataFormContent)
+
+const StarBorderIcon = <StarBorder/>;
+const StarIcon = <Star color={yellow400}/>;
+
+function getIconChildren(key, checked) {
+  if (key === checked){
+    return StarIcon
+  } else {
+    return StarBorderIcon
+  }
+}
 
 // DataForm render ths form
 let DataForm = () => {

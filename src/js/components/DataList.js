@@ -8,6 +8,9 @@ import Divider from 'material-ui/Divider';
 import styles from '../Styles';
 import LazyLoad from 'react-lazy-load';
 
+const RESOURCE_READ   = 'RESOURCE_READ';
+const RESOURCE_SELECT = 'RESOURCE_SELECT';
+
 // DataFormToolbar to render the toolbar and its buttons
 let DataListToolbar = () => {
   return (
@@ -117,9 +120,6 @@ let DataListContent = ({items, handleOnNext, onSelect}) => {
       </View>
     )
 }
-
-const RESOURCE_READ   = 'RESOURCE_READ';
-const RESOURCE_SELECT = 'RESOURCE_SELECT';
 
 const mapStateToPropsDataListContent = (state) => {
   return {
