@@ -28,7 +28,7 @@ const initialState = {
       {
         "id": 1,
         "name": "Product 1",
-        "description": "This is about Product 1",
+        "description": "Existing Product 1",
         "starred": 0,
         "image": [
           {
@@ -37,34 +37,30 @@ const initialState = {
           },
           {
             "imageID": 2,
-            "file": "../images/dog1.jpg"
+            "file": "../images/dog2.jpg"
           },
           {
             "imageID": 3,
-            "file": "../images/dog1.jpg"
+            "file": "../images/dog3.png"
           },
           {
             "imageID": 4,
-            "file": "../images/dog1.jpg"
+            "file": "../images/dog4.jpg"
           },
           {
             "imageID": 5,
-            "file": "../images/dog1.jpg"
+            "file": "../images/dog5.jpg"
           },
           {
             "imageID": 6,
-            "file": "../images/dog1.jpg"
-          },
-          {
-            "imageID": 7,
-            "file": "../images/dog1.jpg"
+            "file": "../images/dog6.jpg"
           }
         ]
       },
       {
         "id": 2,
         "name": "Product 2",
-        "description": "This is about Product 2",
+        "description": "Existing Product 2",
         "starred": 0,
         "image": [
           {
@@ -73,34 +69,30 @@ const initialState = {
           },
           {
             "imageID": 2,
-            "file": "../images/dog2.jpg"
+            "file": "../images/dog3.png"
           },
           {
             "imageID": 3,
-            "file": "../images/dog2.jpg"
+            "file": "../images/dog4.jpg"
           },
           {
             "imageID": 4,
-            "file": "../images/dog2.jpg"
+            "file": "../images/dog5.jpg"
           },
           {
             "imageID": 5,
-            "file": "../images/dog2.jpg"
+            "file": "../images/dog6.jpg"
           },
           {
             "imageID": 6,
-            "file": "../images/dog2.jpg"
-          },
-          {
-            "imageID": 7,
-            "file": "../images/dog2.jpg"
+            "file": "../images/dog1.jpg"
           }
         ]
       },
       {
         "id": 3,
         "name": "Product 3",
-        "description": "This is about Product 3",
+        "description": "Existing Product 3",
         "starred": 0,
         "image": [
           {
@@ -109,34 +101,30 @@ const initialState = {
           },
           {
             "imageID": 2,
-            "file": "../images/dog3.png"
+            "file": "../images/dog4.jpg"
           },
           {
             "imageID": 3,
-            "file": "../images/dog3.png"
+            "file": "../images/dog5.jpg"
           },
           {
             "imageID": 4,
-            "file": "../images/dog3.png"
+            "file": "../images/dog6.jpg"
           },
           {
             "imageID": 5,
-            "file": "../images/dog3.png"
+            "file": "../images/dog1.jpg"
           },
           {
             "imageID": 6,
-            "file": "../images/dog3.png"
-          },
-          {
-            "imageID": 7,
-            "file": "../images/dog3.png"
+            "file": "../images/dog2.jpg"
           }
         ]
       },
       {
         "id": 4,
         "name": "Product 4",
-        "description": "This is about Product 4",
+        "description": "Existing Product 4",
         "starred": 0,
         "image": [
           {
@@ -145,34 +133,30 @@ const initialState = {
           },
           {
             "imageID": 2,
-            "file": "../images/dog4.jpg"
+            "file": "../images/dog5.jpg"
           },
           {
             "imageID": 3,
-            "file": "../images/dog4.jpg"
+            "file": "../images/dog6.jpg"
           },
           {
             "imageID": 4,
-            "file": "../images/dog4.jpg"
+            "file": "../images/dog1.jpg"
           },
           {
             "imageID": 5,
-            "file": "../images/dog4.jpg"
+            "file": "../images/dog2.jpg"
           },
           {
             "imageID": 6,
-            "file": "../images/dog4.jpg"
-          },
-          {
-            "imageID": 7,
-            "file": "../images/dog4.jpg"
+            "file": "../images/dog3.png"
           }
         ]
       },
       {
         "id": 5,
         "name": "Product 5",
-        "description": "This is about Product 5",
+        "description": "Existing Product 5",
         "starred": 0,
         "image": [
           {
@@ -181,26 +165,22 @@ const initialState = {
           },
           {
             "imageID": 2,
-            "file": "../images/dog5.jpg"
+            "file": "../images/dog6.jpg"
           },
           {
             "imageID": 3,
-            "file": "../images/dog5.jpg"
+            "file": "../images/dog1.jpg"
           },
           {
             "imageID": 4,
-            "file": "../images/dog5.jpg"
+            "file": "../images/dog2.jpg"
           },
           {
             "imageID": 5,
-            "file": "../images/dog5.jpg"
+            "file": "../images/dog3.png"
           },
           {
             "imageID": 6,
-            "file": "../images/dog4.jpg"
-          },
-          {
-            "imageID": 7,
             "file": "../images/dog4.jpg"
           }
         ]
@@ -208,7 +188,7 @@ const initialState = {
       {
         "id": 6,
         "name": "Product 6",
-        "description": "This is about Product 6",
+        "description": "Existing Product 6",
         "starred": 0,
         "image": [
           {
@@ -217,27 +197,23 @@ const initialState = {
           },
           {
             "imageID": 2,
-            "file": "../images/dog6.jpg"
+            "file": "../images/dog1.jpg"
           },
           {
             "imageID": 3,
-            "file": "../images/dog6.jpg"
+            "file": "../images/dog2.jpg"
           },
           {
             "imageID": 4,
-            "file": "../images/dog6.jpg"
+            "file": "../images/dog3.png"
           },
           {
             "imageID": 5,
-            "file": "../images/dog6.jpg"
+            "file": "../images/dog4.jpg"
           },
           {
             "imageID": 6,
-            "file": "../images/dog4.jpg"
-          },
-          {
-            "imageID": 7,
-            "file": "../images/dog4.jpg"
+            "file": "../images/dog5.jpg"
           }
         ]
       },
@@ -258,27 +234,23 @@ var data1 = [
       },
       {
         "imageID": 2,
-        "file": "../images/dog1.jpg"
+        "file": "../images/dog2.jpg"
       },
       {
         "imageID": 3,
-        "file": "../images/dog1.jpg"
+        "file": "../images/dog3.png"
       },
       {
         "imageID": 4,
-        "file": "../images/dog1.jpg"
+        "file": "../images/dog4.jpg"
       },
       {
         "imageID": 5,
-        "file": "../images/dog1.jpg"
+        "file": "../images/dog5.jpg"
       },
       {
         "imageID": 6,
-        "file": "../images/dog1.jpg"
-      },
-      {
-        "imageID": 7,
-        "file": "../images/dog1.jpg"
+        "file": "../images/dog6.jpg"
       }
     ]
   },
@@ -294,27 +266,23 @@ var data1 = [
       },
       {
         "imageID": 2,
-        "file": "../images/dog2.jpg"
+        "file": "../images/dog3.png"
       },
       {
         "imageID": 3,
-        "file": "../images/dog2.jpg"
+        "file": "../images/dog4.jpg"
       },
       {
         "imageID": 4,
-        "file": "../images/dog2.jpg"
+        "file": "../images/dog5.jpg"
       },
       {
         "imageID": 5,
-        "file": "../images/dog2.jpg"
+        "file": "../images/dog6.jpg"
       },
       {
         "imageID": 6,
-        "file": "../images/dog2.jpg"
-      },
-      {
-        "imageID": 7,
-        "file": "../images/dog2.jpg"
+        "file": "../images/dog1.jpg"
       }
     ]
   },
@@ -330,27 +298,23 @@ var data1 = [
       },
       {
         "imageID": 2,
-        "file": "../images/dog3.png"
+        "file": "../images/dog4.jpg"
       },
       {
         "imageID": 3,
-        "file": "../images/dog3.png"
+        "file": "../images/dog5.jpg"
       },
       {
         "imageID": 4,
-        "file": "../images/dog3.png"
+        "file": "../images/dog6.jpg"
       },
       {
         "imageID": 5,
-        "file": "../images/dog3.png"
+        "file": "../images/dog1.jpg"
       },
       {
         "imageID": 6,
-        "file": "../images/dog3.png"
-      },
-      {
-        "imageID": 7,
-        "file": "../images/dog3.png"
+        "file": "../images/dog2.jpg"
       }
     ]
   },
@@ -366,27 +330,23 @@ var data1 = [
       },
       {
         "imageID": 2,
-        "file": "../images/dog4.jpg"
+        "file": "../images/dog5.jpg"
       },
       {
         "imageID": 3,
-        "file": "../images/dog4.jpg"
+        "file": "../images/dog6.jpg"
       },
       {
         "imageID": 4,
-        "file": "../images/dog4.jpg"
+        "file": "../images/dog1.jpg"
       },
       {
         "imageID": 5,
-        "file": "../images/dog4.jpg"
+        "file": "../images/dog2.jpg"
       },
       {
         "imageID": 6,
-        "file": "../images/dog4.jpg"
-      },
-      {
-        "imageID": 7,
-        "file": "../images/dog4.jpg"
+        "file": "../images/dog3.png"
       }
     ]
   }
@@ -396,13 +356,9 @@ const RESOURCE_READ   = 'RESOURCE_READ';
 const RESOURCE_SELECT = 'RESOURCE_SELECT';
 const TOGGLE_DRAWER   = 'TOGGLE_DRAWER';
 const CLOSE_DRAWER    = 'CLOSE_DRAWER';
+const RESOURCE_STAR   = 'RESOURCE_STAR';
 
-function resourceSelect(index) {
-  return {
-    type: RESOURCE_SELECT,
-    index
-  }
-}
+// Reducer active to to determine item selected in data list item
 
 function active (state = initialState.active, action) {
   switch (action.type) {
@@ -413,21 +369,33 @@ function active (state = initialState.active, action) {
   }
 }
 
-function resourceRead() {
-  return {
-    type: RESOURCE_READ
-  }
-}
+// Reducer resource to
+// 1. combine additional item to the existing list item state
+// 2. update starred image in within each item
 
-// Drawer resource to combine additional item to the existing list item state
 function resource (state = initialState.resource, action) {
   switch (action.type) {
     case RESOURCE_READ:
       return {...state, data: [...state.data, ...data1]};
+    case RESOURCE_STAR:
+      return {...state,
+              data: [
+                ...state.data.slice(0, action.activeItem),
+                 {
+                   "id": state.data[action.activeItem].id,
+                   "name": state.data[action.activeItem].name,
+                   "starred": action.index,
+                   "image": state.data[action.activeItem].image
+                 },
+                 ...state.data.slice(action.activeItem+1, state.data.length)
+              ]
+            };
     default:
       return state
   }
 }
+
+// Reducer drawer to return the state or action of the drawer
 
 function toggleDrawer(text) {
   return {
@@ -436,7 +404,6 @@ function toggleDrawer(text) {
   }
 }
 
-// Drawer reducer to return the state or action of the drawer
 function drawer (state = initialState.drawer, action) {
   switch (action.type) {
     case TOGGLE_DRAWER:
