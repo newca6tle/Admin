@@ -357,9 +357,9 @@ const RESOURCE_SELECT = 'RESOURCE_SELECT';
 const TOGGLE_DRAWER   = 'TOGGLE_DRAWER';
 const CLOSE_DRAWER    = 'CLOSE_DRAWER';
 const RESOURCE_STAR   = 'RESOURCE_STAR';
+const RESOURCE_DELETE = 'RESOURCE_DELETE';
 
 // Reducer active to to determine item selected in data list item
-
 function active (state = initialState.active, action) {
   switch (action.type) {
     case RESOURCE_SELECT:
@@ -372,31 +372,45 @@ function active (state = initialState.active, action) {
 // Reducer resource to
 // 1. combine additional item to the existing list item state
 // 2. update starred image in within each item
-
 function resource (state = initialState.resource, action) {
   switch (action.type) {
     case RESOURCE_READ:
       return {...state, data: [...state.data, ...data1]};
     case RESOURCE_STAR:
       return {...state,
-              data: [
-                ...state.data.slice(0, action.activeItem),
-                 {
-                   "id": state.data[action.activeItem].id,
-                   "name": state.data[action.activeItem].name,
-                   "starred": action.index,
-                   "image": state.data[action.activeItem].image
-                 },
-                 ...state.data.slice(action.activeItem+1, state.data.length)
-              ]
-            };
+        data: [
+          ...state.data.slice(0, action.activeItem),
+           {
+             "id": state.data[action.activeItem].id,
+             "name": state.data[action.activeItem].name,
+             "starred": action.index,
+             "image": state.data[action.activeItem].image
+           },
+           ...state.data.slice(action.activeItem+1, state.data.length)
+        ]
+      };
+    case RESOURCE_DELETE:
+      return {...state,
+        data: [
+          ...state.data.slice(0, action.activeItem),
+          {
+            "id": state.data[action.activeItem].id,
+            "name": state.data[action.activeItem].name,
+            "starred": state.data[action.activeItem].starred,
+            "image": [
+              ...state.data[action.activeItem].image.slice(0,action.index),
+              ...state.data[action.activeItem].image.slice(action.index+1, state.data[action.activeItem].image.length)
+            ]
+          },
+          ...state.data.slice(action.activeItem+1, state.data.length)
+        ]
+      };
     default:
       return state
   }
 }
 
 // Reducer drawer to return the state or action of the drawer
-
 function toggleDrawer(text) {
   return {
     type: TOGGLE_DRAWER,
@@ -446,25 +460,6 @@ let ApplicationContent = () => {
     </View>
   )
 }
-
-/*
-const mapStateToPropsApplicationContent = (state) => {
-  return {
-    listItemTemplate: '<div>Hello, World</div>'
-  }
-}
-
-const mapDispatchToPropsApplicationContent = (dispatch) => {
-  return {
-    renderListItem: ()=>{ return('<div><i class="material-icons">more_vert</i></div>')}
-  }
-}
-
-ApplicationContent = connect(
-  mapStateToPropsApplicationContent,
-  mapDispatchToPropsApplicationContent
-)(ApplicationContent)
-*/
 
 // ApplicationDrawer shown in the interface
 let ApplicationDrawer = ({drawerstate, handleClose}) => {
