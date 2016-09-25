@@ -39,7 +39,7 @@ let DataFormToolbar = () => {
 }
 
 // DataFormContent to render the related images for a particular item
-let DataFormContent = ({listItemImageArray, activeItem, handleOnStar, starredImage}) => {
+let DataFormContent = ({listItemImageArray, activeItem, handleOnStar, handleOnDelete, starredImage}) => {
   var _scrollView: ScrollView;
   return (
     <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
@@ -49,7 +49,8 @@ let DataFormContent = ({listItemImageArray, activeItem, handleOnStar, starredIma
           <Image style={styles.roImage} source={item.file}/>
           <IconButton
             style={{position:'absolute',top:0,right:0, padding: 0, width: 30, height: 30}}
-            children={<Clear />}/>
+            children={<Clear />}
+            onClick={ () => {handleOnDelete(index,activeItem)}}/>
           <IconButton
             style={{position:'absolute',top:0,left:0, padding: 0, width: 30, height: 30}}
             children={getIconChildren(index, starredImage)}
@@ -72,11 +73,23 @@ const mapDispatchToPropsDataFormContent = (dispatch, ownProps) => {
   return {
     handleOnStar: (index, activeItem) => {
       dispatch(starred(index, activeItem))
+    },
+    handleOnDelete: (index, activeItem) => {
+      dispatch(deleted(index, activeItem))
     }
   }
 }
 
+const RESOURCE_DELETE = 'RESOURCE_DELETE';
 const RESOURCE_STAR = 'RESOURCE_STAR';
+
+function deleted(index, activeItem) {
+  return {
+    type: RESOURCE_DELETE,
+    index,
+    activeItem
+  }
+}
 
 function starred(index, activeItem) {
   return {
