@@ -2,14 +2,24 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+h1 {
+  font-size: 18px;
+  text-align: center;
+}
+
 body {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 20px;
   margin: 0;
   padding: 0;
 }
 
-.app-box-wrapper {
+.appLabel {
+  font-size: 18px;
+  text-align: left;
+}
+
+.appBoxWrapper {
   flex-direction: column;
   position: absolute;
   top: 0;
@@ -35,7 +45,7 @@ body {
   display: flex;
   height: 80px;
   position: relative;
-  background-color: lightgreen;
+  /*background-color: #e6e6e6;*/
 }
 
 .listItemWrapper {
@@ -46,14 +56,14 @@ body {
   right: 0;
   display: flex;
   flex-grow: 1;
-  border: 1px solid black;
+  border: 1px solid #a8a8a8;
 }
 
 .listItemImageBox {
   position: relative;
   width: 80px;
   min-width: 80px;
-  background-image: url("../../images/list_placeholder.png");
+  background-image: url('http://www.thebakerymadewithlove.com/wp-content/uploads/2014/08/placeholder.png');
   background-size: 80px 80px;
   display: flex;
 }
@@ -98,6 +108,7 @@ body {
   position: relative;
   font-size: 16px;
   line-height: 22px;
+  color: black;
 }
 
 .listItemTextTitleWrapper {
@@ -142,4 +153,32 @@ body {
   margin: 0;
   flex-grow: 1;
   overflow: hidden;
+}
+
+.modal {
+  left: 0px;
+  right: 0px;
+  background:#f6f6f6;
+  box-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.15), 0 -0.5px 0 rgba(0, 0, 0, 0.15), 0.5px 0 0 rgba(0, 0, 0, 0.15), -0.5px 0 0 rgba(0, 0, 0, 0.15), 0 4px 7px rgba(0,0,0,0.15), 0px 0px 0px 2000px rgba(0,0,0,0.2);
+  border-radius: 1px;
+  padding: 20px;
+  z-index: 2;
+}
+
+.search {
+  float:right;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 200px;
+  height: 30px;
+  border: 1px solid transparent;
+  box-shadow: 0 0.5px 0 rgba(0,0,0,0.15), 0 -0.5px 0 rgba(0,0,0,0.15), 0.5px 0 0 rgba(0,0,0,0.15), -0.5px 0 0 rgba(0,0,0,0.15);
+  _line-height: 22px;
+  _font-weight: 400;
+  background: #ffffff;
+  color: #231f20;
+  border-radius: 3px;
 }
