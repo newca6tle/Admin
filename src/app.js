@@ -49,7 +49,7 @@ const muiTheme = getMuiTheme({
 // Main Application
 function run() {
   let state = store.getState();
-  localStore.set(state, ['drawer', 'item', 'resource']);
+  localStore.set(state, ['drawer', 'item', 'resource', 'navigation']);
   //localStore.clear(state);
   console.log(state);
   ReactDOM.render((<Provider store={store}>

@@ -1,24 +1,24 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import ApplicationBar from './ApplicationBar';
-import ApplicationDrawer from './ApplicationDrawer';
 import { View } from 'react-native';
+import { connect } from 'react-redux';
+// Components
+import PreviewEditorContent from './PreviewEditorContent';
+import PreviewScreenContent from './PreviewScreenContent';
 // Styles
-import styles from '../styleJS';
+import styles from '../stylePV';
 
-const mapStateToProps = (props, { params: { itemId } }) => ({
-  itemId
+const mapStateToProps = (state) => ({
+  state
 });
 
-let Preview = ({ itemId, children }) => {
+let Preview = ({ state, children }) => {
   return (
-    <div className="appBoxWrapper">
-      <ApplicationBar/>
-      <ApplicationDrawer/>
-      <br/>
-      <br/>
-      <h1><p>This is where our preview is going to be.</p></h1>
-    </div>
+    <View style={styles.previewContentBox}>
+      <View style={styles.previewContentWrapper}>
+        <PreviewEditorContent />
+        <PreviewScreenContent />
+      </View>
+    </View>
   )
 }
 

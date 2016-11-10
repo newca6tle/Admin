@@ -15,3 +15,6 @@ export const deleteItem = (id) => ({ type: 'DELETE_ITEM', id });
 export const filterItem = query => ({ type: 'FILTER_ITEM', data: query });
 export const sortItem = query => ({ type: 'SORT_ITEM_NAME' });
 export const unsortItem = query => ({ type: 'UNSORT_ITEM_NAME' });
+//PreviewEditorContent.js
+export const handleFirstPreviewSlider = value => ({ type: 'HANDLE_FIRST_PREVIEW_SLIDER', data: value });
+export const handleSecondPreviewSlider = value => ({ type: 'HANDLE_SECOND_PREVIEW_SLIDER', data: value });

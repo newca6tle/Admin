@@ -4,9 +4,10 @@ import { Link, browserHistory } from 'react-router';
 // Material UI
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-
+import Toggle from 'material-ui/Toggle';
+// Styles
 const style = {
-  margin: 12
+  margin: 3
 };
 
 const ItemModal = React.createClass({
@@ -15,7 +16,8 @@ const ItemModal = React.createClass({
     return {
         name: '',
         description: '',
-        image: ''
+        image: '',
+        featured: false
     };
   },
 
@@ -37,10 +39,16 @@ const ItemModal = React.createClass({
     })
   },
 
+  _handleFeaturedFieldChange: function(e, value) {
+    this.setState({
+        featured: value
+    })
+  },
+
   render(){
     let { item, state, deleteItem } = this.props;
     var index = state.resource.findIndex(c => c.id.toString() === item.itemId);
-
+    console.log(this.state.featured);
     return (
       <div className='modal'>
       { deleteItem ?
@@ -61,6 +69,11 @@ const ItemModal = React.createClass({
           <TextField style={style} fullWidth={true} value={this.state.description} onChange={this._handleDescriptionFieldChange} floatingLabelText="Description" hintText={state.resource[index].description} multiLine={true} />
           <br />
           <TextField style={style} fullWidth={true} value={this.state.image} onChange={this._handleImageFieldChange} floatingLabelText="Image" hintText="Image URL" />
+          <br />
+          <br />
+          <Toggle style={style} label="Featured" defaultToggled={state.resource[index].featured} labelPosition="right" value={this.state.featured} onToggle={this._handleFeaturedFieldChange} />
+          <br />
+          <br />
           <div>
             <Link to={`/content/item/${item.itemId}`}><RaisedButton label="SAVE" primary={true} onClick={this.onSave} style={style} /></Link>
             <Link to={`/content/item/${item.itemId}`}><RaisedButton label="CANCEL" style={style} /></Link>
@@ -76,7 +89,8 @@ const ItemModal = React.createClass({
       id: this.props.item.itemId,
       name: this.state.name,
       description: this.state.description,
-      image: this.state.image
+      image: this.state.image?this.state.image:'http://www.thebakerymadewithlove.com/wp-content/uploads/2014/08/placeholder.png',
+      featured: this.state.featured
     }));
   },
 

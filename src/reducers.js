@@ -62,6 +62,36 @@ export const resourceSort = (state, action) => {
   }
 };
 
+export const previewFirstSlider = (state, action) => {
+  switch (action.type) {
+    case 'HANDLE_FIRST_PREVIEW_SLIDER':
+      if (action.data < 0.5) {
+        return 'iPhone5';
+      } else {
+        return 'iPhone6';
+      }
+    default:
+      return state || 'iPhone5';
+  }
+};
+
+export const previewSecondSlider = (state, action) => {
+  switch (action.type) {
+    case 'HANDLE_SECOND_PREVIEW_SLIDER':
+      if ( action.data < 0.25 ) {
+        return 'Red'
+      } else if ( action.data >= 0.25 && action.data < 0.50 ) {
+        return 'Blue'
+      } else if ( action.data >= 0.50 && action.data < 0.75 ) {
+        return 'Green'
+      } else {
+        return 'Purple'
+      }
+    default:
+      return state || 'Blue';
+  }
+};
+
 export const item = (state, action) => {
   switch (action.type) {
     case 'SELECT_ITEM':

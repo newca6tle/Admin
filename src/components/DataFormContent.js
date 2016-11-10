@@ -74,6 +74,26 @@ const DataFormContent = ({ selectedItem, itemId, children}) => {
               </View>
             </View>
           </View>
+          <View style={styles.dataFormGroupRowBox}>
+            <View style={styles.dataFormGroupRowWrapper}>
+              <View style={styles.dataFormGroupColBox}>
+                <View style={styles.dataFormGroupColWrapper}>
+                  <View style={styles.dataFormGroupLabelBox}>
+                    <View style={styles.dataFormGroupLabelWrapper}>
+                      <View style={styles.label}>
+                      Featured
+                      </View>
+                    </View>
+                  </View>
+                  <View style={styles.dataFormGroupFieldBox}>
+                    <View style={styles.dataFormGroupFieldWrapper}>
+                      Yes
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
         </View>
       </View>
     </ScrollView>

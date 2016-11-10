@@ -24,7 +24,7 @@ const ApplicationBar = React.createClass({
         <span className="appLabel">
           {capitalizeFirstLetter(props.navigation)}
         </span>
-      );
+    );
 
     return(
     <AppBar

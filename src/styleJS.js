@@ -1,3 +1,5 @@
+// Stylesheet for Application
+
 import {StyleSheet} from 'react-native';
 
 var styles = StyleSheet.create({
@@ -90,9 +92,7 @@ var styles = StyleSheet.create({
     flexGrow: 1,
     paddingLeft: 10,
     paddingRight: 10,
-    paddingBottom: 10,
-    borderWidth: 1,
-    borderColor: 'white'
+    paddingBottom: 10
   },
 
   dataFormGroupRowWrapper: {
@@ -108,7 +108,7 @@ var styles = StyleSheet.create({
     position:'relative',
     flexGrow: 1,
     borderWidth: 1,
-    borderColor: '#f7423b',
+    borderColor: '#f7423b'
   },
 
   dataFormGroupColWrapper: {
@@ -117,7 +117,8 @@ var styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     left: 0,
-    right: 0
+    right: 0,
+    height: 30
   },
 
   dataFormGroupLabelBox: {
@@ -148,7 +149,8 @@ var styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     left: 0,
-    right: 0
+    right: 0,
+    marginTop: 5
   },
 
   formImage: {
@@ -177,7 +179,13 @@ var styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0
+  },
+
+  toggleStyle: {
+    maxWidth: 250,
+    marginBottom: 16,
   }
+
 });
 
 export default styles;

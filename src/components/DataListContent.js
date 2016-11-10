@@ -57,7 +57,7 @@ const DataListContent = React.createClass({
               <div className="listItemImageBox">
                 <LazyLoad>
                   <div className="listItemImageWrapper">
-                    <ImageImage item={item.image}/>
+                    <ImageImage item={item.image} />
                   </div>
                 </LazyLoad>
               </div>
