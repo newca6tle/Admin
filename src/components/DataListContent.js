@@ -17,14 +17,14 @@ import fuzzysearch from 'fuzzysearch';
 const matches = (filter, item) =>
   fuzzysearch(filter, item.name.toString());
 
-  // Used to perform sort on name in alphabetical order
-  function compare(a,b) {
-    if (a.name < b.name)
-      return -1;
-    if (a.name > b.name)
-      return 1;
-    return 0;
-  }
+// Used to perform sort on name in alphabetical order
+function compare(a,b) {
+  if (a.name < b.name)
+    return -1;
+  if (a.name > b.name)
+    return 1;
+  return 0;
+}
 
 const mapStateToProps = ( {resource, resourceFilter, resourceSort} ) => {
   return {

@@ -1,0 +1,66 @@
+"groups": [
+  {
+    "label": "Overview",
+    "rows":
+    [
+      {
+        "columns":
+        [
+          {
+            "field": "image"
+          }
+        ]
+      },
+      {
+        "columns": [
+          {
+            "field": "images"
+          }
+        ]
+      }
+    ]
+  }
+],
+
+"fields": [
+  {
+    "name": "name",
+    "label": "Name",
+    "type": {
+      "control": "Text",
+      "multiLine": false,
+      "minLength": 0,
+      "maxLength": 50
+    },
+    "required": false,
+    "readOnly": false,
+    "systemOnly": false,
+    "remark": ""
+  },
+  {
+    "name": "images",
+    "label": "Photos",
+    "type": {
+      "control": "imagesLib"
+    },
+    "required": false,
+    "readOnly": false,
+    "systemOnly": false,
+    "remarks": ""
+  },
+  {
+    "name": "price",
+    "label": "Selling Price",
+    "type": {
+      "control": "Number",
+      "allowNegative": false,
+      "min": 0,
+      "max": 50,
+      "format": "#,###.00"
+    },
+    "required": false,
+    "readOnly": false,
+    "systemOnly": false,
+    "remarks": ""
+  }
+]

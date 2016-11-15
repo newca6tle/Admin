@@ -1,0 +1,100 @@
+{
+  "groups": [
+    {
+      "groupId": 1,
+      "label": "Overview",
+      "rows":
+      [
+        {
+          "rowId": 1,
+          "columns":
+          [
+            {
+              "columnId": 1,
+              "field": "image"
+            }
+          ]
+        },
+        {
+          "rowId": 2,
+          "columns":
+          [
+            {
+              "columnId": 1,
+              "field": "name"
+            },
+            {
+              "columnId": 2,
+              "field": "description"
+            }
+          ]
+        },
+        {
+          "rowId": 3,
+          "columns":
+          [
+            {
+              "columnId": 1,
+              "field": "featured"
+            }
+          ]
+        },
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "name": "image",
+      "label": "Photos",
+      "type": {
+        "control": "imagesLib"
+    },
+      "required": false,
+      "readOnly": false,
+      "systemOnly": false,
+      "remarks": ""
+    },
+    {
+      "name": "name",
+      "label": "Name",
+      "type": {
+        "control": "Text",
+        "multiLine": false,
+        "minLength": 0,
+        "maxLength": 50
+      },
+      "required": false,
+      "readOnly": false,
+      "systemOnly": false,
+      "remark": ""
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": {
+        "control": "Text",
+        "multiLine": false,
+        "minLength": 0,
+        "maxLength": 50
+      },
+      "required": false,
+      "readOnly": false,
+      "systemOnly": false,
+      "remark": ""
+    },
+    {
+      "name": "featured",
+      "label": "Featured",
+      "type": {
+        "control": "Text",
+        "multiLine": false,
+        "minLength": 0,
+        "maxLength": 50
+      },
+      "required": false,
+      "readOnly": false,
+      "systemOnly": false,
+      "remark": ""
+    },
+  ]
+}

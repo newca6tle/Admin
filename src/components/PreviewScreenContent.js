@@ -20,6 +20,7 @@ import styles from '../stylePV';
 const mapStateToProps = (state) => ({
   resource: state.resource,
   featured: state.resource.filter(c => c.featured == true),
+  notFeatured: state.resource.filter(c => c.featured != true),
   screen: state.previewFirstSlider,
   theme: state.previewSecondSlider
 });
@@ -34,14 +35,39 @@ const Preview = React.createClass({
 
     let resource = this.props.resource;
     let featured = this.props.featured;
+    let notFeatured = this.props.notFeatured;
     let screen = this.props.screen;
     let theme = this.props.theme;
     var _scrollView: ScrollView;
 
     var listImage = featured.map((item) => {
       return (
-        <View key={item.id.toString()} style = {styles.previewScreenImageBox}>
-          <Image style={styles.previewImage} source={item.image}/>
+        <View key={item.id.toString()}>
+          <Image style={styles.previewFeaturedImage} source={item.image} />
+        </View>
+      );
+    });
+
+    var listItems = notFeatured.map((item) => {
+      return (
+        <View key={item.id.toString()} style={styles.previewScreenListBox}>
+          <View style={styles.previewScreenListWrapper}>
+            <View style={styles.previewScreenListImageBox}>
+              <View style = {styles.previewScreenListImageWrapper}>
+                <Image style={styles.previewNotFeaturedImage} source={item.image} />
+              </View>
+            </View>
+            <View style={styles.previewScreenListDescriptionBox}>
+              <View style={styles.previewScreenListDescriptionWrapper}>
+                <Text style={styles.previewScreenListDescriptionTitle}>
+                  {item.name}
+                </Text>
+                <Text style={styles.previewScreenListDescriptionDescription}>
+                  {item.description}
+                </Text>
+              </View>
+            </View>
+          </View>
         </View>
       );
     });
@@ -54,8 +80,8 @@ const Preview = React.createClass({
           scrollEventThrottle={100} horizontal={false}>
             <View style={getScreen(screen)}>
               <AppBar title={title}/>
-              <View style={styles.previewScreenGroupImageBox}>
-                <View style = {styles.previewScreenGroupImageWrapper}>
+              <View style={styles.previewScreenFeaturedImageBox}>
+                <View style = {styles.previewScreenFeaturedImageWrapper}>
                   <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
                   scrollEventThrottle={100} horizontal={true}>
                     {listImage}
@@ -65,9 +91,13 @@ const Preview = React.createClass({
               <View style={styles.previewScreenGroupRowBox}>
                 <View style = {styles.previewScreenGroupRowWrapper}>
                   <Tabs>
-                    <Tab label="Latest" />
-                    <Tab label="Featured" />
+                    <Tab label="All"/>
+                    <Tab label="Trending" />
                   </Tabs>
+                  <ScrollView ref={(scrollView) => { _scrollView = scrollView; }}
+                  scrollEventThrottle={100} horizontal={false}>
+                    {listItems}
+                  </ScrollView>
                 </View>
               </View>
             </View>

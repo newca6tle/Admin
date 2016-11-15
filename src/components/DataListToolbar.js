@@ -46,7 +46,8 @@ function data() {
   return {
     name: randomWords({ min: 2, max: 5, join: ' ' }),
     description: randomWords({ min: 5, max: 10, join: ' ' }),
-    image: 'http://2.bp.blogspot.com/-fJfEeR0_8_Y/Ta1yk9XfIxI/AAAAAAAAAro/TREm-PKHtNg/s1600/yurbuds.jpg'
+    image: 'http://2.bp.blogspot.com/-fJfEeR0_8_Y/Ta1yk9XfIxI/AAAAAAAAAro/TREm-PKHtNg/s1600/yurbuds.jpg',
+    featured: false
   }
 }
 

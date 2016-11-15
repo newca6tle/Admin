@@ -117,8 +117,7 @@ var styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     left: 0,
-    right: 0,
-    height: 30
+    right: 0
   },
 
   dataFormGroupLabelBox: {
@@ -135,7 +134,8 @@ var styles = StyleSheet.create({
     top: 0,
     bottom: 0,
     left: 0,
-    right: 0
+    right: 0,
+    margin: 3
   },
 
   dataFormGroupFieldBox: {
@@ -150,7 +150,7 @@ var styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    marginTop: 5
+    margin: 3
   },
 
   formImage: {

@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { toggleDrawer } from '../actions';
+import { toggleDrawer, previewNavigation } from '../actions';
+import { Link } from 'react-router';
 // Material UI
 import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
+import IconButton from 'material-ui/IconButton';
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -14,7 +15,8 @@ const mapStateToProps = (state) => ({
   navigation: state.navigation
 })
 const mapDispatchToProps = dispatch => ({
-  handleToggle: (index) => dispatch(toggleDrawer())
+  handleToggle: (index) => dispatch(toggleDrawer()),
+  previewNavigation: () => dispatch(previewNavigation())
 });
 
 const ApplicationBar = React.createClass({
@@ -30,6 +32,7 @@ const ApplicationBar = React.createClass({
     <AppBar
       title={title}
       onLeftIconButtonTouchTap={()=>{props.handleToggle()}}
+      iconElementRight={<Link to={`/preview`} onClick={()=>{props.previewNavigation()}}><IconButton iconClassName="material-icons">visibility</IconButton></Link>}
     />);
   }
 });

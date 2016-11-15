@@ -49,7 +49,7 @@ var styles = StyleSheet.create({
 
   previewEditorGroupRowBox: {
     position: 'relative',
-    flexGrow: 1,
+    flexGrow: 1
   },
 
   previewEditorGroupRowWrapper: {
@@ -78,30 +78,17 @@ var styles = StyleSheet.create({
     margin: 10
   },
 
-  previewImage: {
+  previewFeaturedImage: {
     height: 200,
     width: 200,
     resizeMode: 'contain',
     //position: 'absolute',
   },
 
-  previewScreenImageBox: {
-    height: 200,
-    //display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  previewScreenGroupImageBox: {
-    position: 'relative'
-  },
-
-  previewScreenGroupImageWrapper: {
-    //position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0
+  previewNotFeaturedImage: {
+    height: 100,
+    width: 100,
+    resizeMode: 'contain',
   },
 
   previewScreenGroupRowBox: {
@@ -110,7 +97,50 @@ var styles = StyleSheet.create({
   },
 
   previewScreenGroupRowWrapper: {
-    //position:'absolute',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  previewScreenListBox: {
+    position: 'relative',
+    flexGrow: 1,
+    height: 101,
+    borderBottomWidth: 1
+  },
+
+  previewScreenListWrapper: {
+    position: 'absolute',
+    flexDirection: "row",
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  previewScreenListImageBox: {
+    position: 'relative',
+    width: 100
+  },
+
+  previewScreenListImageWrapper: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0
+  },
+
+  previewScreenListDescriptionBox: {
+    position: 'relative',
+    flexGrow: 1
+  },
+
+  previewScreenListDescriptionWrapper:{
+    position: 'absolute',
+    margin: 5,
     top: 0,
     bottom: 0,
     left: 0,
@@ -143,6 +173,16 @@ var styles = StyleSheet.create({
 
   image: {
     justifyContent: 'center',
+  },
+
+  previewScreenListDescriptionTitle: {
+    fontWeight: 'bold',
+    fontSize: 16
+  },
+
+  previewScreenListDescriptionDescription: {
+    fontSize: 14,
+    color: 'grey'
   }
 
 })

@@ -22,7 +22,7 @@ const Preview = React.createClass({
   getInitialState: function() {
     return {
       firstSlider: 0.3,
-      secondSlider: 0.4
+      secondSlider: 0.1
     };
   },
 

@@ -14,6 +14,12 @@ body {
   padding: 0;
 }
 
+.headline {
+  font-size: 30px;
+  text-align: center;
+  color: red;
+}
+
 .appLabel {
   font-size: 18px;
   text-align: left;
